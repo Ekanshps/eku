@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ekansh Portfolio</title>
+<link rel="icon" href="./img/logo1.png" type="image/icon type">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Ekansh – MCA student & eSports athlete building full‑stack web projects. Portfolio, projects, journey, testimonials." />
+<meta name="author" content="Ekansh" />
+<meta property="og:title" content="Ekansh | Portfolio" />
+<meta property="og:description" content="Building small, focused web projects while mastering fundamentals." />
+<meta property="og:image" content="img/preview-light.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+<div class="cursor-blob" id="blob" aria-hidden="true"></div>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="logo" onclick="scrollTo({top:0,behavior:'smooth'})">EKANSH</div>
+
+  <button class="hamburger" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links" id="primaryNav">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#skills">SKILLS</a></li>
+    <li><a href="#timeline">TIMELINE</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#testimonials">TESTIMONIALS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+
+  <button class="vibe-toggle" id="vibeBtn" aria-label="Toggle theme">
+    <div class="vibe-dot"></div><span id="vibeText">DARK</span>
+  </button>
+ </nav>
+
+
+<header>
+  <div class="tagline">BUILD • VIBE • REPEAT</div>
+  <h1>Designing Future Interfaces</h1>
+  <div id="typed" aria-live="polite"></div>
+</header>
+
+<section class="section" id="about">
+  <h2>About</h2>
+  <p class="lead">I'm Ekansh a MCA student exploring full‑stack development while bringing strategic focus from my eSports experience. I like building small, useful projects that help me understand fundamentals deeper.</p>
+  <div class="about-grid">
+    <div class="glass">
+      <h3 style="margin:.2rem 0 .6rem;font-size:1.05rem;">What I'm Doing</h3>
+      <p style="color:var(--text-dim); margin:.2rem 0;">Strengthening core web (HTML, CSS, JS) and moving gradually into React & simple back‑end (Node + basic APIs).</p>
+      <p style="color:var(--text-dim); margin:.2rem 0;">Documenting mistakes & lessons so I can iterate faster next time.</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin:.2rem 0 .6rem;font-size:1.05rem;">How eSports Helps</h3>
+      <p style="color:var(--text-dim); margin:.2rem 0;">Competitive gaming trained fast pattern recognition, calm calls under pressure, and teamwork—translating into cleaner debugging & communication.</p>
+      <p style="color:var(--text-dim); margin:.2rem 0;">I treat practice sprints like scrims: focused reps on one skill (DOM, async, layouts).</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin:.2rem 0 .6rem;font-size:1.05rem;">Current Focus</h3>
+      <ul style="color:var(--text-dim); margin:.4rem 0 0; padding-left:1.1rem; font-size:.9rem; line-height:1.5;">
+        <li>Deeper JS (arrays, async, patterns)</li>
+        <li>Consistent React component habits</li>
+        <li>Clean folder + naming structure</li>
+        <li>Better accessibility basics</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:1.1rem;">
+    <span class="fact-chip">🎮 ESPORTS ATHLETE</span>
+    <span class="fact-chip">🧪 LEARNING BY DOING</span>
+    <span class="fact-chip">📓 DAILY NOTES</span>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2>Skills (Growing)</h2>
+  <div class="skills-wrap" id="skillsWrap"></div>
+</section>
+
+<section class="section" id="timeline">
+  <h2>Journey</h2>
+  <div class="timeline" id="timelineGrid"></div>
+  <div class="pagination" id="journeyPagination">
+    <button id="journeyPrev" aria-label="Previous journey page">Prev</button>
+    <span id="journeyPageInfo"></span>
+    <button id="journeyNext" aria-label="Next journey page">Next</button>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2>Projects</h2>
+  <div class="proj-filters" id="projFilters">
+    <button data-filter="all" class="pf active">ALL</button>
+    <button data-filter="web" class="pf">WEB</button>
+    <button data-filter="ui" class="pf">UI</button>
+    <button data-filter="clone" class="pf">CLONE</button>
+  </div>
+  <div class="proj-grid" id="projGrid" aria-live="polite"></div>
+  <div class="pagination" id="projectPagination">
+    <button id="projectPrev" aria-label="Previous project page">Prev</button>
+    <span id="projectPageInfo"></span>
+    <button id="projectNext" aria-label="Next project page">Next</button>
+  </div>
+</section>
+
+<section class="section" id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testi-wrapper">
+    <button class="testi-nav-btn testi-prev" id="testiPrev" aria-label="Previous testimonial">‹</button>
+    <button class="testi-nav-btn testi-next" id="testiNext" aria-label="Next testimonial">›</button>
+    <div class="testi-card">
+      <div class="testi-main" id="testiMain">
+        <img id="testiAvatar" class="testi-avatar" src="" alt="">
+        <p class="testi-text" id="testiText"></p>
+        <span class="testi-name" id="testiName"></span>
+        <span class="testi-role" id="testiRole"></span>
+      </div>
+      <div class="testi-progress"><div class="testi-bar" id="testiBar"></div></div>
+    </div>
+    <div class="testi-dock" id="testiDock" aria-label="Testimonial thumbnails"></div>
+  </div>
+</section>
+
+<section class="section" id="impact">
+  <h2>Impact</h2>
+  <div class="impact-stats">
+    <div><span data-num="5" class="impact-num">0</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">PROJECTS</label></div>
+    <div><span data-num="12" class="impact-num">0</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">REPOS</label></div>
+    <div><span data-num="15" class="impact-num">0</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">SKILLS</label></div>
+    <div><span data-num="3" class="impact-num">0</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">TEAM APPS</label></div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <h2>Connect</h2>
+  <form  action="https://formspree.io/f/movlrbrj" method="POST" novalidate>
+    <input required name="name" placeholder="Your Name" aria-label="Your Name">
+    <input required type="email" name="email" placeholder="Email Address" aria-label="Email Address">
+    <textarea required name="message" placeholder="Message" aria-label="Message"></textarea>
+    <button class="send-btn" type="submit">Send Message ✉️</button>
+    <div class="success" id="successMsg" style="display:none;">Message sent!</div>
+  </form>
+  <p class="muted" style="margin-top:1.1rem;">I’ll reply soon. Thanks for reaching out.</p>
+</section>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<footer class="footer">
+  © 2025 EKANSH • KEEP BUILDING
+  <div class="socials">
+    <a href="https://www.instagram.com/ekansh.pratap/" target="_blank" rel="noopener">INSTAGRAM</a>
+    <a href="https://github.com/Ekanshps" target="_blank" rel="noopener">GITHUB</a>
+    <a href="https://www.linkedin.com/in/ekanshsinghyt/" target="_blank" rel="noopener">LINKEDIN</a>
+    <a href="mailto:ekanshprataps@gmail.com">EMAIL</a>
+  </div>
+</footer>
+<!-- Botpress Chat Bubble -->
+<script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+<script src="https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
