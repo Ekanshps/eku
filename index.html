@@ -3,30 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Ekansh Pratap Singh | DevArea - Frontend Developer & MCA Student Lucknow | Portfolio</title>
-<link rel="icon" href="./img/logo1.png" type="image/icon type">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark light">
 
 <!-- Preconnect for faster external resource loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdn.botpress.cloud">
 
-<!-- Preload critical resources -->
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="./img/logo1.png" as="image">
-
-<!-- Critical CSS - Inline for faster FCP -->
+<!-- Critical CSS - Inline for instant FCP -->
 <style>
-:root{--bg:#0d0d10;--bg-alt:#14141b;--glass:rgba(255,255,255,0.08);--border:rgba(255,255,255,0.18);--grad:linear-gradient(90deg,#ff42d9,#6d5bff,#42e3ff);--text:#e9eef5;--text-dim:#9ba5b7;--nav-height:66px}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+:root{--bg:#0d0d10;--bg-alt:#14141b;--glass:rgba(255,255,255,0.08);--border:rgba(255,255,255,0.18);--grad:linear-gradient(90deg,#ff42d9,#6d5bff,#42e3ff);--text:#e9eef5;--text-dim:#9ba5b7;--nav-height:66px;--radius:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;background:#0d0d10;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.light{--bg:#f5f7fa;--bg-alt:#fff;--text:#1e2430;--text-dim:#5a6573;background:#f5f7fa}
 .navbar{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;height:var(--nav-height);padding:0 clamp(1rem,4vw,3rem);backdrop-filter:blur(14px);background:linear-gradient(115deg,#0d0d10cc,#14141bcc 60%);border-bottom:1px solid var(--border)}
-.logo{font-family:system-ui;font-size:1.5rem;background:var(--grad);-webkit-background-clip:text;color:transparent;cursor:pointer}
-h1{font-size:clamp(2.3rem,6.8vw,3.6rem);margin:.2rem 0 .8rem;line-height:1.05;background:var(--grad);-webkit-background-clip:text;color:transparent}
-header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,8vh,5rem);min-height:60vh;display:flex;flex-direction:column;justify-content:center}
-.tagline{font-size:.78rem;letter-spacing:3px;color:var(--text-dim);margin-bottom:.7rem}
+body.light .navbar{background:linear-gradient(115deg,#ffffffcc,#ffffffcc)}
+.logo{font-family:'Syne',system-ui;font-size:1.5rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:1.4rem}
+.nav-links a{font-size:.85rem;letter-spacing:.75px;padding:.55rem .85rem;color:var(--text-dim);font-weight:500;text-decoration:none;border-radius:14px;transition:color .26s}
+.nav-links a:hover{color:var(--text)}
+h1,h2{font-family:'Syne',system-ui;letter-spacing:.5px}
+h1{font-size:clamp(2.3rem,6.8vw,3.6rem);margin:.2rem 0 .8rem;line-height:1.05;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,8vh,5rem);min-height:55vh;display:flex;flex-direction:column;justify-content:center}
+.tagline{font-size:.75rem;text-transform:uppercase;letter-spacing:4px;color:var(--text-dim);display:inline-block;background:var(--glass);padding:.55rem 1.4rem;border:1px solid var(--border);border-radius:40px;width:auto;max-width:fit-content;margin:0 auto .7rem}
+#typed{font-size:clamp(1rem,2.6vw,1.25rem);font-weight:500;margin-top:1.1rem;color:var(--text-dim);min-height:1.4em}
+.vibe-toggle{display:flex;align-items:center;gap:.55rem;background:var(--glass);color:var(--text-dim);border:1px solid var(--border);padding:.55rem .9rem;border-radius:40px;font-size:.7rem;letter-spacing:.8px;cursor:pointer;backdrop-filter:blur(14px)}
+.vibe-dot{width:16px;height:16px;border-radius:50%;background:var(--grad)}
+.hamburger{display:none;flex-direction:column;gap:4px;background:var(--glass);border:1px solid var(--border);padding:.55rem .9rem;border-radius:40px;cursor:pointer}
+.hamburger span{width:20px;height:2px;background:linear-gradient(90deg,#6d5bff,#42e3ff);border-radius:2px}
+@media(max-width:880px){.nav-links{position:absolute;top:var(--nav-height);right:0;left:0;flex-direction:column;background:linear-gradient(140deg,var(--bg-alt) 10%,#0f1015ee);padding:0;max-height:0;overflow:hidden;visibility:hidden;opacity:0}.nav-links.open{padding:1rem 1.2rem 1.6rem;max-height:420px;visibility:visible;opacity:1}.hamburger{display:flex}.vibe-toggle{display:none}}
 </style>
+
+<!-- Favicon - load async -->
+<link rel="icon" href="./img/logo1.png" type="image/png">
 
 <!-- Primary SEO Meta Tags -->
 <meta name="description" content="Ekansh Pratap Singh (DevArea/devareayt) - Frontend Developer & MCA Student from Lucknow, India. Specializing in HTML, CSS, JavaScript, React, Web Development. Hire me for frontend projects. Contact: Ayush Singh" />
@@ -132,11 +142,12 @@ header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) cl
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-<!-- Main CSS -->
-<link rel="stylesheet" href="styles.css">
+<!-- Main CSS - load async for faster FCP -->
+<link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
-<div class="cursor-blob" id="blob" aria-hidden="true"></div>
+<!-- Remove cursor blob for mobile - causes jank -->
 
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="logo" onclick="scrollTo({top:0,behavior:'smooth'})">EKANSH</div>
