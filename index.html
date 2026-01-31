@@ -7,6 +7,27 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark light">
 
+<!-- Preconnect for faster external resource loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.botpress.cloud">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="styles.css" as="style">
+<link rel="preload" href="./img/logo1.png" as="image">
+
+<!-- Critical CSS - Inline for faster FCP -->
+<style>
+:root{--bg:#0d0d10;--bg-alt:#14141b;--glass:rgba(255,255,255,0.08);--border:rgba(255,255,255,0.18);--grad:linear-gradient(90deg,#ff42d9,#6d5bff,#42e3ff);--text:#e9eef5;--text-dim:#9ba5b7;--nav-height:66px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.navbar{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;height:var(--nav-height);padding:0 clamp(1rem,4vw,3rem);backdrop-filter:blur(14px);background:linear-gradient(115deg,#0d0d10cc,#14141bcc 60%);border-bottom:1px solid var(--border)}
+.logo{font-family:system-ui;font-size:1.5rem;background:var(--grad);-webkit-background-clip:text;color:transparent;cursor:pointer}
+h1{font-size:clamp(2.3rem,6.8vw,3.6rem);margin:.2rem 0 .8rem;line-height:1.05;background:var(--grad);-webkit-background-clip:text;color:transparent}
+header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,8vh,5rem);min-height:60vh;display:flex;flex-direction:column;justify-content:center}
+.tagline{font-size:.78rem;letter-spacing:3px;color:var(--text-dim);margin-bottom:.7rem}
+</style>
+
 <!-- Primary SEO Meta Tags -->
 <meta name="description" content="Ekansh Pratap Singh (DevArea/devareayt) - Frontend Developer & MCA Student from Lucknow, India. Specializing in HTML, CSS, JavaScript, React, Web Development. Hire me for frontend projects. Contact: Ayush Singh" />
 <meta name="keywords" content="Ekansh Pratap Singh, Ekansh, DevArea, devareayt, Ayush Singh, web developer, frontend developer, MCA student, web developer Lucknow, frontend developer Lucknow, React developer, JavaScript developer, freelance web developer India, portfolio, MCA student Lucknow, web development services Lucknow, HTML CSS JavaScript, UI developer, responsive web design" />
@@ -107,7 +128,11 @@
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Load fonts asynchronously - non-blocking -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+<!-- Main CSS -->
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -254,9 +279,26 @@
     <a href="mailto:ekanshprataps@gmail.com">EMAIL</a>
   </div>
 </footer>
-<!-- Botpress Chat Bubble -->
-<script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
-<script src="https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js" defer></script>
+
+<!-- Main script - deferred -->
 <script src="script.js" defer></script>
+
+<!-- Botpress Chat Bubble - Load after page is interactive -->
+<script>
+// Lazy load chatbot after page loads
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var s1 = document.createElement('script');
+    s1.src = 'https://cdn.botpress.cloud/webchat/v3.2/inject.js';
+    s1.defer = true;
+    document.body.appendChild(s1);
+    
+    var s2 = document.createElement('script');
+    s2.src = 'https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js';
+    s2.defer = true;
+    document.body.appendChild(s2);
+  }, 3000); // Load chatbot 3 seconds after page load
+});
+</script>
 </body>
 </html>
