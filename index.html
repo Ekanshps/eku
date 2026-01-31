@@ -24,15 +24,20 @@ body.light .navbar{background:linear-gradient(115deg,#ffffffcc,#ffffffcc)}
 .nav-links a{font-size:.85rem;letter-spacing:.75px;padding:.55rem .85rem;color:var(--text-dim);font-weight:500;text-decoration:none;border-radius:14px;transition:color .26s}
 .nav-links a:hover{color:var(--text)}
 h1,h2{font-family:'Syne',system-ui;letter-spacing:.5px}
-h1{font-size:clamp(2.3rem,6.8vw,3.6rem);margin:.2rem 0 .8rem;line-height:1.05;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,8vh,5rem);min-height:55vh;display:flex;flex-direction:column;justify-content:center}
-.tagline{font-size:.75rem;text-transform:uppercase;letter-spacing:4px;color:var(--text-dim);display:inline-block;background:var(--glass);padding:.55rem 1.4rem;border:1px solid var(--border);border-radius:40px;width:auto;max-width:fit-content;margin:0 auto .7rem}
-#typed{font-size:clamp(1rem,2.6vw,1.25rem);font-weight:500;margin-top:1.1rem;color:var(--text-dim);min-height:1.4em}
+h1{font-size:clamp(2.3rem,6.8vw,3.6rem);margin:.2rem 0 .8rem;line-height:1.05;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;min-height:1.1em}
+header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,8vh,5rem);min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.tagline{font-size:.75rem;text-transform:uppercase;letter-spacing:4px;color:var(--text-dim);display:inline-block;background:var(--glass);padding:.55rem 1.4rem;border:1px solid var(--border);border-radius:40px;width:auto;max-width:fit-content;margin:0 auto .7rem;min-height:38px}
+#typed{font-size:clamp(1rem,2.6vw,1.25rem);font-weight:500;margin-top:1.1rem;color:var(--text-dim);min-height:30px;height:30px}
 .vibe-toggle{display:flex;align-items:center;gap:.55rem;background:var(--glass);color:var(--text-dim);border:1px solid var(--border);padding:.55rem .9rem;border-radius:40px;font-size:.7rem;letter-spacing:.8px;cursor:pointer;backdrop-filter:blur(14px)}
 .vibe-dot{width:16px;height:16px;border-radius:50%;background:var(--grad)}
 .hamburger{display:none;flex-direction:column;gap:4px;background:var(--glass);border:1px solid var(--border);padding:.55rem .9rem;border-radius:40px;cursor:pointer}
 .hamburger span{width:20px;height:2px;background:linear-gradient(90deg,#6d5bff,#42e3ff);border-radius:2px}
+.section{max-width:1060px;padding:3rem clamp(1.15rem,4vw,3.2rem);margin:0 auto}
+h2{font-size:clamp(1.55rem,4.3vw,2.2rem);margin:0 0 1.15rem}
 @media(max-width:880px){.nav-links{position:absolute;top:var(--nav-height);right:0;left:0;flex-direction:column;background:linear-gradient(140deg,var(--bg-alt) 10%,#0f1015ee);padding:0;max-height:0;overflow:hidden;visibility:hidden;opacity:0}.nav-links.open{padding:1rem 1.2rem 1.6rem;max-height:420px;visibility:visible;opacity:1}.hamburger{display:flex}.vibe-toggle{display:none}}
+/* Font fallback to prevent CLS */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:local('Space Grotesk')}
+@font-face{font-family:'Syne';font-style:normal;font-weight:500 700;font-display:swap;src:local('Syne')}
 </style>
 
 <!-- Favicon - load async -->
