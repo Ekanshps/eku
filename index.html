@@ -290,14 +290,14 @@ window.addEventListener('load', function() {
   setTimeout(function() {
     var s1 = document.createElement('script');
     s1.src = 'https://cdn.botpress.cloud/webchat/v3.2/inject.js';
-    s1.defer = true;
     document.body.appendChild(s1);
     
-    var s2 = document.createElement('script');
-    s2.src = 'https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js';
-    s2.defer = true;
-    document.body.appendChild(s2);
-  }, 3000); // Load chatbot 3 seconds after page load
+    s1.onload = function() {
+      var s2 = document.createElement('script');
+      s2.src = 'https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js';
+      document.body.appendChild(s2);
+    };
+  }, 1500); // Load chatbot 1.5 seconds after page load
 });
 </script>
 </body>
