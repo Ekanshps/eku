@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Ekansh Portfolio - DevArea - Full Stack Web Developer Lucknow
-Sitemap: https://ekanshps.github.io/eku/sitemap.xml
+# Ekansh Pratap Singh Portfolio - Best Web Developer Lucknow, Gonda, Ayodhya, UP
+Sitemap: https://epsingh.in/sitemap.xml
