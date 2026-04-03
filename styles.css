@@ -379,8 +379,14 @@ body.light .glass:hover { background:linear-gradient(140deg,var(--glass),#7d6dff
 }
 .project-card:hover { transform:translateY(-6px); border-color:#42e3ffbb; }
 .project-card h3 { margin:.1rem 0 .2rem; font-size:1rem; }
-.repo-btn {
+.project-links {
   margin-top:auto;
+  display:flex;
+  gap:.5rem;
+  flex-wrap:wrap;
+}
+.repo-btn,
+.live-btn {
   align-self:flex-start;
   text-decoration:none;
   font-size:.65rem;
@@ -388,14 +394,18 @@ body.light .glass:hover { background:linear-gradient(140deg,var(--glass),#7d6dff
   font-weight:600;
   padding:.55rem .9rem;
   border-radius:30px;
-  background:var(--grad);
   color:#fff;
   display:inline-flex;
   align-items:center;
   gap:.45rem;
   transition:filter .35s, transform .35s;
 }
-.repo-btn:hover { filter:brightness(1.15); transform:translateY(-3px); }
+.repo-btn { background:var(--grad); }
+.live-btn {
+  background:linear-gradient(130deg,#0f9f8b,#0b6d95);
+}
+.repo-btn:hover,
+.live-btn:hover { filter:brightness(1.15); transform:translateY(-3px); }
 
 /* Testimonials Enhanced */
 #testimonials { }
@@ -813,5 +823,6 @@ body.light .cursor-blob { opacity:.20; filter:blur(70px); }
   h1 { font-size:clamp(2rem,9vw,2.9rem); }
   .about-grid { grid-template-columns:1fr; }
   .testi-card { padding:2.1rem 1.2rem 2.4rem; }
-  .repo-btn { font-size:.62rem; }
+  .repo-btn,
+  .live-btn { font-size:.62rem; }
 }

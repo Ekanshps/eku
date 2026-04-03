@@ -16,20 +16,24 @@ function typeLoop(){
 typeLoop();
 
 /* Skills */
-const skillSet = JSON.parse(localStorage.getItem('eku_skills')) || ["HTML","CSS","JavaScript","C","Python Basics","Git","Responsive Design","SQL Basics","Learning React","Problem Solving","Teamwork","Time Management"];
+const skillSet = JSON.parse(localStorage.getItem('eku_skills')) || ["HTML","CSS","JavaScript","React","Responsive Web Design","Node.js","Python","MySQL","MongoDB","APIs","GSAP","Three.js","Framer Motion","3D Particle Effects","Git & GitHub","UI/UX Design Systems","SEO Basics","Applied AI Pipelines","Leadership","Problem-Solving","Teamwork","Calm Communication"];
 const skillsWrap=document.getElementById('skillsWrap');
 skillSet.forEach(s=>{ const d=document.createElement('div'); d.className='skill-tag'; d.textContent=s; skillsWrap.appendChild(d); });
 
 /* Timeline */
 const milestones = JSON.parse(localStorage.getItem('eku_journey')) || [
- {year:"2023",icon:"🎮",title:"BGIS",desc:"eSports teamwork sharpened focus & comms."},
- {year:"2024",icon:"🌱",title:"Started MCA",desc:"Set foundation: programming logic, web basics."},
- {year:"2024",icon:"🛠",title:"Mini Builds",desc:"Notes app, tracker, UI experiments."},
- {year:"2025",icon:"⚡",title:"Front-End Focus",desc:"Improving layouts, state, component patterns."},
- {year:"2025",icon:"💡",title:"Hackathon",desc:"Participated in first coding hackathon."},
- {year:"2025",icon:"📚",title:"Learning React",desc:"Started building projects with React."},
- {year:"2025",icon:"🌐",title:"Open Source",desc:"Contributed to open source for the first time."},
- {year:"2025",icon:"🚀",title:"Internship",desc:"Started internship as a web developer."}
+ {year:"2021",icon:"🎓",title:"BCA Started",desc:"Began Bachelor of Computer Applications at Dr. Ram Manohar Lohia Avadh University, Ayodhya."},
+ {year:"2023",icon:"💼",title:"Hospital Internship",desc:"Interned at Appozon Technologies, worked on Hospital Management System project."},
+ {year:"2023",icon:"🎮",title:"eSports Career",desc:"Joined Xplosion Esports as BGMI player & In-Game Leader (IGL) with strategic calls & team communication."},
+ {year:"2024",icon:"✅",title:"BCA Completed",desc:"Graduated with BCA degree from Dr. Ram Manohar Lohia Avadh University, Ayodhya."},
+ {year:"2024",icon:"🎓",title:"MCA Started",desc:"Enrolled in Master of Computer Applications at SRMCEM, Lucknow (Aug 2024)."},
+ {year:"2024",icon:"🛠",title:"Early Projects",desc:"Built Hacker Portfolio, Usability Hub Clone, Task Buddy & UI experiments."},
+ {year:"2024",icon:"🌐",title:"Web Essentials",desc:"Developed responsive websites for Owl Cafe, Hospital Landing Page & practice projects."},
+ {year:"2025",icon:"⚡",title:"Full Stack Training",desc:"Completed Web Development Training (Full Stack – Python with Django) at SRMCEM Lucknow."},
+ {year:"2026",icon:"🚀",title:"Professional Growth",desc:"Created Saurabh Studio with Next.js 14, animations & 3D effects for clients."},
+ {year:"2026",icon:"🎯",title:"eSports Platforms",desc:"Built Xplosion eSports and Godlike Esports fullstack websites."},
+ {year:"2026",icon:"💡",title:"Social & Dev Tools",desc:"Launched DevForge, Promptble, WarpShare, and started EduHive & Panchayat."},
+ {year:"2026",icon:"🌟",title:"DevArea Brand",desc:"Created personal brand webapp offering web development, design & content services."}
 ];
 const tl=document.getElementById('timelineGrid');
 const journeyPrev=document.getElementById('journeyPrev');
@@ -68,19 +72,19 @@ journeyNext?.addEventListener('click',()=>{
 addEventListener('scroll',revealTimeline); addEventListener('load',renderJourney);
 
 /* Projects */
-const projectData = JSON.parse(localStorage.getItem('eku_projects')) || [
- {title:"Portfolio V1",cat:"web",desc:"Responsive personal site iteration.",repo:"https://github.com/Ekanshps/Portfolio.dev"},
- {title:"Task Buddy",cat:"ui",desc:"Daily task manager app.",repo:"https://github.com/Ekanshps/TaskBuddy"},
- {title:"Usability Hub",cat:"clone",desc:"Clone Usability Hub website, to improve UX.",repo:"https://github.com/Ekanshps/UsabilityHub-Homepage-Clone"},
- {title:"Saurabh Studio",cat:"web",desc:"Animated website for Saurabh Studio, AYODHYA.",repo:"https://github.com/Ekanshps/SaurabhStudio"},
- {title:"News Webpage",cat:"web",desc:"Practice fetching public APIs.",repo:"https://github.com/Ekanshps/E-News-Website-DevArea"},
- {title:"Quizz App",cat:"clone",desc:"Tried to create an interface, that quizzes users on various topics.",repo:"https://github.com/Ekanshps/Quiz-app"},
- {title:"Weather App",cat:"web",desc:"Simple weather forecast app.",repo:"#"},
- {title:"Expense Tracker",cat:"ui",desc:"Track your daily expenses easily.",repo:"#"},
- {title:"Blog Platform",cat:"web",desc:"Minimal blog platform for sharing ideas.",repo:"#"},
- {title:"Image Gallery",cat:"ui",desc:"Responsive gallery for images.",repo:"#"},
- {title:"Movie Finder",cat:"clone",desc:"Find movies and details using public APIs.",repo:"#"},
- {title:"Portfolio V2",cat:"web",desc:"Second iteration of personal portfolio.",repo:"#"}
+const projectData = [
+ {title:"Saurabh Studio, Ayodhya",cat:"web",desc:"Modern, high-performance photography studio website built with Next.js 14 with cinema-quality animations and 3D effects.",repo:"https://github.com/Ekanshps/SS-Web",live:"https://ss-web-woad.vercel.app"},
+ {title:"DevForge",cat:"web",desc:"A collection of free, fast, and privacy-focused developer tools.",repo:"https://github.com/Ekanshps/DevForge",live:"https://devareayt.in"},
+ {title:"Hacker Portfolio",cat:"ui",desc:"Portfolio project showcasing web development skills with interactive and visually appealing HTML, CSS, and JavaScript.",repo:"https://github.com/Ekanshps/Hacker-Portfolio",live:"https://ekanshps.github.io/Hacker-Portfolio/"},
+ {title:"WarpShare",cat:"web",desc:"Modern web app for direct device-to-device file sharing without cloud services, external storage, or internet connectivity.",repo:"https://github.com/Ekanshps/WrapShare-v1",live:"https://wrap-share-v1.vercel.app"},
+ {title:"Xplosion eSports",cat:"ui",desc:"Dynamic and engaging website dedicated to the world of eSports, built as a frontend landing page demo.",repo:"https://github.com/Ekanshps/Xplosion-eSports",live:"https://ekanshps.github.io/Xplosion-eSports/"},
+ {title:"Godlike Esports",cat:"web",desc:"Modern, responsive fullstack website for Godlike Esports, one of India's premier esports organizations.",repo:"https://github.com/Ekanshps/godlikeesports",live:"https://godlikeesports.vercel.app"},
+ {title:"Owl Cafe",cat:"ui",desc:"Modern, responsive website for Owl Cafe, Lucknow, focused on ambience-first branding and 24x7 cafe visibility.",repo:"https://github.com/Ekanshps/Owl-Cafe",live:"https://ekanshps.github.io/Owl-Cafe/"},
+ {title:"Promptble",cat:"web",desc:"Hub for powerful AI prompts that spark creativity, boost productivity, and accelerate learning.",repo:"https://github.com/Ekanshps/Promptble",live:"https://ekanshps.github.io/Promptble/"},
+ {title:"Hospital Landing Page",cat:"clone",desc:"CHC-PARASPUR landing page project for a nearby hospital, created as a frontend design build.",repo:"https://github.com/Ekanshps/Hospital-landing-page",live:"https://ekanshps.github.io/Hospital-landing-page/"},
+ {title:"Panchayat",cat:"web",desc:"Social webapp for sharing updates in a society, village or town. Register complaints, read society rules, interact with problems and help each other.",repo:"#",live:"#"},
+ {title:"EduHive",cat:"web",desc:"Social learning platform inspired by Instagram, turning doomscrolling into something positive. Built by students for students.",repo:"#",live:"#"},
+ {title:"DevArea",cat:"web",desc:"Personal brand webapp serving as a digital partner, offering services like video editing, graphics designing, web development, and content writing.",repo:"#",live:"#"}
 ];
 const projGrid=document.getElementById('projGrid');
 const projectPrev=document.getElementById('projectPrev');
@@ -102,7 +106,10 @@ function renderProjects(filter=currentFilter){
         <span style="font-size:.55rem;letter-spacing:2px;color:#42e3ff;font-weight:600;">${p.cat.toUpperCase()}</span>
         <h3>${p.title}</h3>
         <p style="color:var(--text-dim);font-size:.85rem;line-height:1.45;margin:.1rem 0 .4rem;">${p.desc}</p>
-        <a class="repo-btn" href="${p.repo}" target="_blank" rel="noopener" aria-label="${p.title} GitHub Repo">GIT REPO <span style='font-size:1.1em;'>&#8599;</span></a>
+        <div class="project-links">
+          <a class="repo-btn" href="${p.repo}" target="_blank" rel="noopener" aria-label="${p.title} GitHub Repo">GIT REPO <span style='font-size:1.1em;'>&#8599;</span></a>
+          ${p.live ? `<a class="live-btn" href="${p.live}" target="_blank" rel="noopener" aria-label="${p.title} Live Website">LIVE SITE <span style='font-size:1.1em;'>&#8599;</span></a>` : ""}
+        </div>
       </div>
     `).join("");
   const totalPages=Math.ceil(filtered.length/projectsPerPage);
@@ -129,10 +136,10 @@ document.querySelectorAll('.pf').forEach(btn=>{
 
 /* Testimonials */
 const testimonials = JSON.parse(localStorage.getItem('eku_testimonials')) || [
-  {name:"Arjun Mehta",role:"Startup Owner",text:"Working with Ekansh was a smooth experience from start to finish. He understood my requirements clearly and delivered a clean, responsive website ahead of schedule. I appreciated his attention to detail and willingness to make small refinements until it was perfect.",img:"https://i.pravatar.cc/160?img=56"},
-  {name:"Neha Singh",role:"Product Manager",text:"Ekansh’s work on our project was not only technically sound but also well thought out from a user experience perspective. His ability to translate vague ideas into functional features really stood out.",img:"https://i.pravatar.cc/160?img=32"},
-  {name:"Akhilesh Maurya",role:"Saurabh Studio, Owner",text:"I approached Ekansh for a quick landing page and ended up with a full-fledged, beautifully designed site. The code was neat, easy to maintain, and performed flawlessly on all devices.",img:"https://i.pravatar.cc/160?img=54"},
-  {name:"XPxBAKIIop",role:"Teammate, XPLOSION eSPORTS",text:"Ekansh reads the game like a book. His planning and adaptability give the squad a clear edge in every match.",img:"https://i.pravatar.cc/160?img=57"}
+  {name:"Ajay Namata",role:"Startup Owner",text:"Working with Ekansh was a smooth experience from start to finish. He understood my requirements clearly and delivered a clean, responsive website ahead of schedule. I appreciated his attention to detail and willingness to make small refinements until it was perfect.",img:"img/ghost.png"},
+  {name:"Priti Singh",role:"Mentor",text:"Ekansh’s work on our project was not only technically sound but also well thought out from a user experience perspective. His ability to translate vague ideas into functional features really stood out.",img:"img/testi2.jpg"},
+  {name:"Akhilesh Maurya",role:"Saurabh Studio, Owner",text:"I approached Ekansh for a quick landing page and ended up with a full-fledged, beautifully designed site. The code was neat, easy to maintain, and performed flawlessly on all devices.",img:"img/testi.jpg"},
+  {name:"XPxBAKIIop",role:"Teammate, XPLOSION eSPORTS",text:"Ekansh reads the game like a book. His planning and adaptability give the squad a clear edge in every match.",img:" img/XPxDEADigl.png"},
 ];
 const aboutText = localStorage.getItem('eku_about') || document.querySelector('.lead')?.textContent || "I'm Ekansh a MCA student exploring full‑stack development while bringing strategic focus from my eSports experience. I like building small, useful projects that help me understand fundamentals deeper.";
 if(document.querySelector('.lead')) document.querySelector('.lead').textContent = aboutText;
