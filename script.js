@@ -73,7 +73,7 @@ addEventListener('scroll',revealTimeline); addEventListener('load',renderJourney
 
 /* Projects */
 const projectData = [
- {title:"Saurabh Studio, Ayodhya",cat:"web",desc:"Modern, high-performance photography studio website built with Next.js 14 with cinema-quality animations and 3D effects.",repo:"https://github.com/Ekanshps/SS-Web",live:"https://ss-web-woad.vercel.app"},
+ {title:"Saurabh Studio, Ayodhya",cat:"web",desc:"Modern, high-performance photography studio website built with Next.js 14 with cinema-quality animations and 3D effects.",repo:"https://github.com/Ekanshps/SS-Web",live:"https://ss-web-rosy.vercel.app/"},
  {title:"DevForge",cat:"web",desc:"A collection of free, fast, and privacy-focused developer tools.",repo:"https://github.com/Ekanshps/DevForge",live:"https://devareayt.in"},
  {title:"Hacker Portfolio",cat:"ui",desc:"Portfolio project showcasing web development skills with interactive and visually appealing HTML, CSS, and JavaScript.",repo:"https://github.com/Ekanshps/Hacker-Portfolio",live:"https://ekanshps.github.io/Hacker-Portfolio/"},
  {title:"WarpShare",cat:"web",desc:"Modern web app for direct device-to-device file sharing without cloud services, external storage, or internet connectivity.",repo:"https://github.com/Ekanshps/WrapShare-v1",live:"https://wrap-share-v1.vercel.app"},
