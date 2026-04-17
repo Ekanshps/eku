@@ -1,6 +1,6 @@
 Title: Saurabh Studio, Ayodhya
 Desc: Saurabh Studio is a modern, high-performance photography studio website built with Next.js 14. The website features cinema-quality animations, 3D effects, and a unique photography-themed design language.
-github link: https://github.com/Ekanshps/SS-Web 
+github link: https:
 live link: https://ss-web-woad.vercel.app
 
 Title: DevForge
