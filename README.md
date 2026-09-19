@@ -48,7 +48,7 @@ This portfolio website is a comprehensive showcase of my skills, projects, and j
 ### 📱 Responsive Design
 - Mobile-first approach ensuring optimal viewing on all screen sizes
 - Hamburger menu for mobile navigation
-- Adaptive layouts for tablets and desktops
+- Adaptive layouts for Mobile, tablets and desktops
 - Touch-friendly interactive elements
 
 ### 🎯 Interactive Sections
