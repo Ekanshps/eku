@@ -644,6 +644,44 @@ header .tagline {
 }
 #typed { font-size:clamp(1rem,2.6vw,1.25rem); font-weight:500; margin-top:1.1rem; color:var(--text-dim); min-height:1.4em; }
 
+
+/* Skills */
+
+.skills-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.skill-category-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+
 /* Cursor blob */
 .cursor-blob {
   position:fixed;

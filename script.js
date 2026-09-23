@@ -16,9 +16,89 @@ function typeLoop(){
 typeLoop();
 
 /* Skills */
-const skillSet = JSON.parse(localStorage.getItem('eku_skills')) || ["HTML","CSS","JavaScript","React","Responsive Web Design","Node.js","Python","MySQL","MongoDB","APIs","GSAP","Three.js","Framer Motion","3D Particle Effects","Git & GitHub","UI/UX Design Systems","SEO Basics","Applied AI Pipelines","Leadership","Problem-Solving","Teamwork","Calm Communication"];
-const skillsWrap=document.getElementById('skillsWrap');
-skillSet.forEach(s=>{ const d=document.createElement('div'); d.className='skill-tag'; d.textContent=s; skillsWrap.appendChild(d); });
+/* Skills */
+
+const skillCategories = {
+  "AI & Generative AI": [
+    "Generative AI",
+    "LLMs",
+    "RAG",
+    "LangChain",
+    "Hugging Face",
+    "AI Automation",
+    "AI APIs",
+    "FAISS"
+  ],
+
+  "Programming": [
+    "Python",
+    "C",
+    "C++",
+    "JavaScript"
+  ],
+
+  "Web Development": [
+    "HTML5",
+    "CSS3",
+    "React",
+    "Responsive Web Design",
+    "Typescript",
+    "REST APIs",
+  ],
+
+  "Data & Databases": [
+    "NumPy",
+    "Pandas",
+    "Matplotlib",
+    "Seabor",
+    "MySQL",
+    "MongoDB"
+  ],
+
+  "Tools & Libraries": [
+    "Git & GitHub",
+    "GSAP",
+    "Framer Motion"
+  ],
+
+  "Other": [
+    "SEO",
+    "UI/UX Design",
+    "Problem-Solving"
+  ]
+};
+
+const skillsWrap = document.getElementById("skillsWrap");
+
+Object.entries(skillCategories).forEach(([category, skills]) => {
+
+  // Category container
+  const categoryDiv = document.createElement("div");
+  categoryDiv.className = "skill-category";
+
+  // Category heading
+  const categoryTitle = document.createElement("h3");
+  categoryTitle.className = "skill-category-title";
+  categoryTitle.textContent = category;
+
+  // Skills container
+  const tagsWrap = document.createElement("div");
+  tagsWrap.className = "skill-tags";
+
+  // Skill tags
+  skills.forEach(skill => {
+    const tag = document.createElement("span");
+    tag.className = "skill-tag";
+    tag.textContent = skill;
+
+    tagsWrap.appendChild(tag);
+  });
+
+  categoryDiv.appendChild(categoryTitle);
+  categoryDiv.appendChild(tagsWrap);
+
+  skillsWrap.appendChild(categoryDiv);
+});
 
 /* Timeline */
 const milestones = JSON.parse(localStorage.getItem('eku_journey')) || [
