@@ -1,401 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-IN">
 <head>
-<meta charset="UTF-8">
-<title>Ekansh Pratap Singh | Frontend Developer Portfolio | Web Developer Lucknow, Gonda, Ayodhya UP</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark light">
-
-<!-- Preconnect for faster external resource loading -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Critical CSS - Inline for instant FCP -->
-<style>
-:root{--bg:#0d0d10;--bg-alt:#14141b;--glass:rgba(255,255,255,0.08);--border:rgba(255,255,255,0.18);--grad:linear-gradient(90deg,#ff42d9,#6d5bff,#42e3ff);--text:#e9eef5;--text-dim:#9ba5b7;--nav-height:66px;--radius:20px}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;background:#0d0d10;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.light{--bg:#f5f7fa;--bg-alt:#fff;--text:#1e2430;--text-dim:#5a6573;background:#f5f7fa}
-.navbar{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;height:var(--nav-height);padding:0 clamp(1rem,4vw,3rem);backdrop-filter:blur(14px);background:linear-gradient(115deg,#0d0d10cc,#14141bcc 60%);border-bottom:1px solid var(--border)}
-body.light .navbar{background:linear-gradient(115deg,#ffffffcc,#ffffffcc)}
-.logo{font-family:'Syne',system-ui;font-size:1.5rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;text-decoration:none}
-.nav-links{list-style:none;display:flex;gap:1.4rem}
-.nav-links a{font-size:.85rem;letter-spacing:.75px;padding:.55rem .85rem;color:var(--text-dim);font-weight:500;text-decoration:none;border-radius:14px;transition:color .26s}
-.nav-links a:hover{color:var(--text)}
-h1,h2{font-family:'Syne',system-ui;letter-spacing:.5px}
-h1{font-size:clamp(2.3rem,6.8vw,3.6rem);margin:.2rem 0 .8rem;line-height:1.05;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;min-height:1.1em}
-header{text-align:center;padding:clamp(4rem,12vh,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,8vh,5rem);min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.tagline{font-size:.75rem;text-transform:uppercase;letter-spacing:4px;color:var(--text-dim);display:inline-block;background:var(--glass);padding:.55rem 1.4rem;border:1px solid var(--border);border-radius:40px;width:auto;max-width:fit-content;margin:0 auto .7rem;min-height:38px}
-#typed{font-size:clamp(1rem,2.6vw,1.25rem);font-weight:500;margin-top:1.1rem;color:var(--text-dim);min-height:30px;height:30px}
-.vibe-toggle{display:flex;align-items:center;gap:.55rem;background:var(--glass);color:var(--text-dim);border:1px solid var(--border);padding:.55rem .9rem;border-radius:40px;font-size:.7rem;letter-spacing:.8px;cursor:pointer;backdrop-filter:blur(14px)}
-.vibe-dot{width:16px;height:16px;border-radius:50%;background:var(--grad)}
-.hamburger{display:none;flex-direction:column;gap:4px;background:var(--glass);border:1px solid var(--border);padding:.55rem .9rem;border-radius:40px;cursor:pointer}
-.hamburger span{width:20px;height:2px;background:linear-gradient(90deg,#6d5bff,#42e3ff);border-radius:2px}
-.section{max-width:1060px;padding:3rem clamp(1.15rem,4vw,3.2rem);margin:0 auto}
-h2{font-size:clamp(1.55rem,4.3vw,2.2rem);margin:0 0 1.15rem}
-@media(max-width:880px){.nav-links{position:absolute;top:var(--nav-height);right:0;left:0;flex-direction:column;background:linear-gradient(140deg,var(--bg-alt) 10%,#0f1015ee);padding:0;max-height:0;overflow:hidden;visibility:hidden;opacity:0}.nav-links.open{padding:1rem 1.2rem 1.6rem;max-height:420px;visibility:visible;opacity:1}.hamburger{display:flex}.vibe-toggle{display:none}}
-/* Font fallback to prevent CLS */
-@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:local('Space Grotesk')}
-@font-face{font-family:'Syne';font-style:normal;font-weight:500 700;font-display:swap;src:local('Syne')}
-</style>
-
-<!-- Favicon - load async -->
-<link rel="icon" href="./img/logo1.png" type="image/png">
-
-<!-- Primary SEO Meta Tags -->
-<meta name="description" content="Ekansh Pratap Singh (Ayush Singh) - Frontend Developer & MCA Student from Lucknow, Uttar Pradesh. Expert in HTML, CSS, JavaScript, React. Hire the best web developer in Lucknow, Gonda, Ayodhya. Portfolio of Ekansh Pratap." />
-<meta name="keywords" content="Ekansh, Ekansh Pratap, Ekansh Pratap Singh, Ayush, Ayush Singh, ekansh portfolio, ekansh pratap portfolio, ekansh pratap singh portfolio, ayush portfolio, web developer portfolio, web developer, frontend developer, web developer lucknow, web developer gonda, web developer ayodhya, web developer uttar pradesh, frontend developer lucknow, best web developer UP, hire web developer india, React developer, JavaScript developer, freelance web developer, MCA student Lucknow, HTML CSS JavaScript, responsive web design, DevArea, devareayt, epsingh" />
-<meta name="author" content="Ekansh Pratap Singh - DevArea" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="googlebot" content="index, follow" />
-<meta name="bingbot" content="index, follow" />
-<meta name="revisit-after" content="7 days" />
-<meta name="language" content="English" />
-<meta name="geo.region" content="IN-UP" />
-<meta name="geo.placename" content="Lucknow" />
-<meta name="geo.position" content="26.8467;80.9462" />
-<meta name="ICBM" content="26.8467, 80.9462" />
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://epsingh.in/" />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://epsingh.in/" />
-<meta property="og:title" content="Ekansh Pratap Singh | Frontend Developer Portfolio | Lucknow, UP" />
-<meta property="og:description" content="Portfolio of Ekansh Pratap Singh (Ayush Singh) - Frontend Developer from Lucknow, Uttar Pradesh. Expert in React, JavaScript, HTML, CSS. Best web developer in Lucknow, Gonda, Ayodhya." />
-<meta property="og:image" content="https://epsingh.in/img/preview-light.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:site_name" content="Ekansh Pratap Singh - Portfolio" />
-<meta property="og:locale" content="en_IN" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://epsingh.in/" />
-<meta name="twitter:title" content="Ekansh Pratap Singh | Frontend Developer Portfolio" />
-<meta name="twitter:description" content="Ekansh Pratap Singh (Ayush Singh) - Best Frontend Developer in Lucknow, Gonda, Ayodhya. Hire me for your next web project!" />
-<meta name="twitter:image" content="https://epsingh.in/img/preview-light.png" />
-<meta name="twitter:creator" content="@devareayt" />
-
-<!-- Structured Data - Person Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Ekansh Pratap Singh",
-  "alternateName": ["Ekansh", "Ekansh Pratap", "Ayush", "Ayush Singh", "DevArea", "devareayt", "epsingh"],
-  "url": "https://epsingh.in/",
-  "image": "https://epsingh.in/img/logo1.png",
-  "jobTitle": "Frontend Developer",
-  "description": "Frontend Developer & MCA Student from Lucknow, Gonda, Ayodhya - Uttar Pradesh, India. Best web developer portfolio.",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "DevArea"
-  },
-  "alumniOf": {
-    "@type": "EducationalOrganization",
-    "name": "MCA Program"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lucknow",
-    "addressRegion": "Uttar Pradesh",
-    "addressCountry": "India"
-  },
-  "sameAs": [
-    "https://github.com/Ekanshps",
-    "https://youtube.com/@devareayt",
-    "https://www.instagram.com/ekansh.pratap/",
-    "https://www.linkedin.com/in/ekanshsinghyt/"
-  ],
-  "knowsAbout": ["Frontend Development", "Web Development", "JavaScript", "React", "HTML", "CSS", "Responsive Design", "UI Development", "Node.js"]
-}
-</script>
-
-<!-- Structured Data - Website Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Ekansh Pratap Singh Portfolio",
-  "url": "https://epsingh.in/",
-  "description": "Portfolio of Ekansh Pratap Singh (Ayush Singh) - Best Frontend Developer from Lucknow, Gonda, Ayodhya, Uttar Pradesh",
-  "author": {
-    "@type": "Person",
-    "name": "Ekansh Pratap Singh"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://epsingh.in/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A192F">
+  <title>Ekansh Pratap Singh | Web Developer, AI Learner</title>
+  <meta name="description" content="Web developer Ekansh Pratap Singh is an MCA graduate, currently training in AI with Python. Explore selected web projects, skills, and contact details.">
+  <meta name="author" content="Ekansh Pratap Singh">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://epsingh.in/">
+  <link rel="icon" href="./img/logo1.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://epsingh.in/">
+  <meta property="og:site_name" content="Ekansh Pratap Singh">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Ekansh Pratap Singh | Web Developer, AI Learner">
+  <meta property="og:description" content="MCA graduate and web developer, currently training in AI with Python. Explore selected projects and contact details.">
+  <meta property="og:image" content="https://epsingh.in/img/og-portfolio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ekansh Pratap Singh, web developer, MCA graduate, currently training in AI with Python">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ekansh Pratap Singh | Web Developer, AI Learner">
+  <meta name="twitter:description" content="MCA graduate and web developer, currently training in AI with Python. Explore selected projects and contact details.">
+  <meta name="twitter:image" content="https://epsingh.in/img/og-portfolio.png">
+  <meta name="twitter:image:alt" content="Ekansh Pratap Singh, web developer, MCA graduate, currently training in AI with Python">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Ekansh Pratap Singh",
+        "url": "https://epsingh.in/",
+        "jobTitle": "Web Developer",
+        "description": "Web developer, MCA graduate, and currently training in AI with Python.",
+        "sameAs": ["https://github.com/Ekanshps"]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Ekansh Pratap Singh",
+        "url": "https://epsingh.in/",
+        "author": {"@type": "Person", "name": "Ekansh Pratap Singh"}
+      }
+    ]
   }
-}
-</script>
-
-<!-- Structured Data - Professional Service -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Ekansh Pratap Singh - Web Development Services",
-  "description": "Professional frontend development services by Ekansh Pratap Singh. Best web developer in Lucknow, Gonda, Ayodhya, Uttar Pradesh.",
-  "url": "https://epsingh.in/",
-  "areaServed": [
-    {"@type": "City", "name": "Lucknow"},
-    {"@type": "City", "name": "Gonda"},
-    {"@type": "City", "name": "Ayodhya"},
-    {"@type": "State", "name": "Uttar Pradesh"}
-  ],
-  "serviceType": ["Web Development", "Frontend Development", "React Development", "Portfolio Website", "Business Website"]
-}
-</script>
-
-<!-- Load fonts asynchronously - non-blocking -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-
-<!-- Main CSS - load async for faster FCP -->
-<link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="styles.css"></noscript>
+  </script>
 </head>
 <body>
-<!-- Remove cursor blob for mobile - causes jank -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="wordmark" href="/" aria-label="Ekansh Pratap Singh, home">EPS<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-list" id="primary-nav">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="/blog/">Notes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="logo" onclick="scrollTo({top:0,behavior:'smooth'})">EKANSH</div>
-
-  <button class="hamburger" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
-    <span></span><span></span><span></span>
-  </button>
-
-  <ul class="nav-links" id="primaryNav">
-    <li><a href="#about">ABOUT</a></li>
-    <li><a href="#skills">SKILLS</a></li>
-    <li><a href="#projects">PROJECTS</a></li>
-    <li><a href="#contact">CONTACT</a></li>
-    <li><a href="./blog/">BLOG</a></li>
-  </ul>
-
-  <button class="vibe-toggle" id="vibeBtn" aria-label="Toggle theme">
-    <div class="vibe-dot"></div><span id="vibeText">DARK</span>
-  </button>
- </nav>
-
-
-<header>
-  <div class="tagline">BUILD • VIBE • REPEAT</div>
-  <h1>Designing Future Interfaces</h1>
-  <div id="typed" aria-live="polite"></div>
-</header>
-
-<section class="section" id="about">
-  <h2>About</h2>
-  <p class="lead">
-  I’m an <strong>MCA Graduate and AI & Python Developer</strong> with a strong foundation in 
-  <strong>Web Development, C, C++, JavaScript, and modern web technologies.</strong>
-  <br><br>
-
-  My journey in technology started with a strong interest in software and web development, 
-  where I built my foundation in programming, responsive interfaces, frontend development, 
-  APIs, and databases. Over time, I have expanded my focus towards 
-  <strong>Artificial Intelligence and Python development.</strong>
-  <br><br>
-
-  Currently, I’m focused on building practical solutions using 
-  <strong>Python, Generative AI, LLMs, RAG, AI automation, and APIs</strong>, 
-  while continuously strengthening my software development skills through hands-on projects.
-  <br><br>
-
-  I enjoy turning ideas into <strong>clean, functional, responsive, and user-focused applications</strong> 
-  and exploring how AI can be integrated with modern web technologies to solve real-world problems.
-  <br><br>
-
-  I’m continuously learning, building, and experimenting with new technologies in 
-  <strong>AI, Python, Generative AI, web development, and intelligent automation</strong> 
-  with the goal of creating practical technology that delivers real value.
-</p>
-  <div class="about-grid">
-    <div class="glass">
-      <h3 style="margin:.2rem 0 .6rem;font-size:1.05rem;">What I'm Doing</h3>
-      <p style="color:var(--text-dim); margin:.2rem 0;">AI & Python Development</p>
-      <p style="color:var(--text-dim); margin:.2rem 0;">Python • Generative AI • LLMs • RAG • AI Automation</p>
-      <p style="color:var(--text-dim); margin:.2rem 0;">AI Engineering • APIs • Databases • Real-World Projects</p>
-      <p style="color:var(--text-dim); margin:.2rem 0;">MySQL • Statistics • NumPy • Pandas • Matplotlib • Seaborn</p>
-
-    </div>
-    <div class="glass">
-      <h3 style="margin:.2rem 0 .6rem;font-size:1.05rem;">How I Build</h3>
-      <p style="color:var(--text-dim); margin:.2rem 0;">I focus on understanding the problem first, building practical solutions, and continuously improving through hands-on development. My approach combines clean code, thoughtful UI, and emerging AI technologies.</p>
-    </div>
-    <div class="glass">
-      <h3 style="margin:.2rem 0 .6rem;font-size:1.05rem;">Current Focus</h3>
-      <ul style="color:var(--text-dim); margin:.4rem 0 0; padding-left:1.1rem; font-size:.9rem; line-height:1.5;">
-        <li>AI & Python Development</li>
-        <li>Generative AI & LLM Applications</li>
-        <li>RAG & Vector Databases</li>
-        <li>Python Data Processing</li>
-        <li>REST APIs & AI Integration</li>
-        <li>Automation & AI-powered workflows</li>
-        <li>Building real-world AI + web projects</li>
-      </ul>
-    </div>
-  </div>
-  <div style="margin-top:1.1rem;">
-    <span class="fact-chip">🎓 MCA GRADUATE</span>
-    <span class="fact-chip">🤖 AI & PYTHON DEVELOPER</span>
-    <span class="fact-chip">🌐 WEB DEVELOPER</span>
-    <span class="fact-chip">🚀 BUILDING REAL-WORLD PROJECTS</span>
-    <span class="fact-chip">📚 CONTINUOUS LEARNER</span>
-  </div>
-</section>
-
-<section class="section" id="skills">
-  <h2>Skills (Growing)</h2>
-  <div class="skills-wrap" id="skillsWrap"></div>
-</section>
-
-<section class="section" id="timeline">
-  <h2>Journey</h2>
-  <div class="timeline" id="timelineGrid"></div>
-  <div class="pagination" id="journeyPagination">
-    <button id="journeyPrev" aria-label="Previous journey page">Prev</button>
-    <span id="journeyPageInfo"></span>
-    <button id="journeyNext" aria-label="Next journey page">Next</button>
-  </div>
-</section>
-
-<section class="section" id="projects">
-  <h2>Projects</h2>
-  <div class="proj-filters" id="projFilters">
-    <button data-filter="all" class="pf active">ALL</button>
-    <button data-filter="web" class="pf">AI / GENAI</button>
-    <button data-filter="ui" class="pf">WEB</button>
-    <button data-filter="clone" class="pf">Tools</button>
-  </div>
-  <div class="proj-grid" id="projGrid" aria-live="polite"></div>
-  <div class="pagination" id="projectPagination">
-    <button id="projectPrev" aria-label="Previous project page">Prev</button>
-    <span id="projectPageInfo"></span>
-    <button id="projectNext" aria-label="Next project page">Next</button>
-  </div>
-</section>
-
-<section class="section" id="testimonials">
-  <h2>Testimonials</h2>
-  <div class="testi-wrapper">
-    <button class="testi-nav-btn testi-prev" id="testiPrev" aria-label="Previous testimonial">‹</button>
-    <button class="testi-nav-btn testi-next" id="testiNext" aria-label="Next testimonial">›</button>
-    <div class="testi-card">
-      <div class="testi-main" id="testiMain">
-        <img id="testiAvatar" class="testi-avatar" src="" alt="">
-        <p class="testi-text" id="testiText"></p>
-        <span class="testi-name" id="testiName"></span>
-        <span class="testi-role" id="testiRole"></span>
+  <main id="main">
+    <header class="hero page-width">
+      <p class="eyebrow">Portfolio <span> / </span> 2026</p>
+      <h1>Ekansh Pratap Singh<span class="hero-role">Web developer.</span></h1>
+      <p class="hero-copy">I build clear, useful websites and web experiences.</p>
+      <p class="hero-typed" id="typed">Thoughtful websites, built for people.</p>
+      <p class="hero-note"><span class="status-mark" aria-hidden="true"></span> MCA graduate <span class="note-divider">/</span> Currently training in AI with Python</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#work">View projects <span aria-hidden="true">↘</span></a>
+        <a class="text-link" href="mailto:ekanshprataps@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="./Ekansh_Pratap_Singh_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="testi-progress"><div class="testi-bar" id="testiBar"></div></div>
-    </div>
-    <div class="testi-dock" id="testiDock" aria-label="Testimonial thumbnails"></div>
-  </div>
-</section>
+    </header>
 
-<section class="section" id="impact">
-  <h2>Impact</h2>
-  <div class="impact-stats">
-    <div><span data-num="10" class="impact-num">10</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">PROJECTS</label></div>
-    <div><span data-num="32" class="impact-num">30</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">REPOS</label></div>
-    <div><span data-num="20" class="impact-num">10</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">SKILLS</label></div>
-    <div><span data-num="3" class="impact-num">2</span><label style="font-size:.7rem;letter-spacing:1px;color:var(--text-dim);">TEAM APPS</label></div>
-  </div>
-</section>
-
-<section class="section contact" id="contact">
-  <h2>Connect</h2>
-  <form  action="https://formspree.io/f/movlrbrj" method="POST" novalidate>
-    <input required name="name" placeholder="Your Name" aria-label="Your Name">
-    <input required type="email" name="email" placeholder="Email Address" aria-label="Email Address">
-    <textarea required name="message" placeholder="Message" aria-label="Message"></textarea>
-    <button class="send-btn" type="submit">Send Message ✉️</button>
-    <div class="success" id="successMsg" style="display:none;">Message sent!</div>
-  </form>
-  <p class="muted" style="margin-top:1.1rem;">I’ll reply soon. Thanks for reaching out.</p>
-</section>
-
-<button id="backToTop" aria-label="Back to top">↑</button>
-
-<footer class="footer-main">
-  <div class="footer-content">
-    <div class="footer-brand">
-      <div class="footer-logo">EKANSH</div>
-      <p class="footer-bio">AI & Python Developer and MCA Graduate building practical AI applications, modern web experiences, and intelligent solutions.</p>
-      <div class="footer-tagline">BUILD • VIBE • REPEAT</div>
-    </div>
-    
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="./blog/">Blog</a>
+    <section class="content-section page-width" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <h2 id="work-title">Selected work</h2>
+        <p>Projects with a live version or source repository.</p>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="./web-developer-lucknow">Web Developer Lucknow</a>
-        <a href="./web-developer-gonda">Web Developer Gonda</a>
-        <a href="./web-developer-ayodhya">Web Developer Ayodhya</a>
-        <a href="./website-developer-for-creators">For Creators</a>
+      <div class="project-tools">
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <button class="filter-button is-active" type="button" data-project-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-project-filter="web" aria-pressed="false">Web</button>
+          <button class="filter-button" type="button" data-project-filter="ui" aria-pressed="false">UI</button>
+          <button class="filter-button" type="button" data-project-filter="tools" aria-pressed="false">Tools</button>
+        </div>
+        <label class="project-search"><span class="visually-hidden">Search projects</span><input type="search" id="project-search" placeholder="Search projects" autocomplete="off"></label>
       </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="https://www.instagram.com/ekansh.pratap/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://github.com/Ekanshps" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/ekanshsinghyt/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://youtube.com/@devareayt" target="_blank" rel="noopener">YouTube</a>
+      <ol class="project-list">
+        <li class="project-row" data-category="web ui" data-search="saurabh studio photography nextjs">
+          <span class="project-index">01</span>
+          <div class="project-summary"><h3>Saurabh Studio</h3><p>Website project for a photography studio, built with Next.js.</p></div>
+          <div class="project-actions"><a href="https://ss-web-rosy.vercel.app/" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/SS-Web" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="tools" data-search="devforge developer tools">
+          <span class="project-index">02</span>
+          <div class="project-summary"><h3>DevForge</h3><p>A collection of free developer tools.</p></div>
+          <div class="project-actions"><a href="https://devareayt.in" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/DevForge" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="web" data-search="warpshare file sharing">
+          <span class="project-index">03</span>
+          <div class="project-summary"><h3>WarpShare</h3><p>A browser-based project for direct device-to-device file sharing.</p></div>
+          <div class="project-actions"><a href="https://wrap-share-v1.vercel.app" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/WrapShare-v1" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="ui" data-search="hacker portfolio html css javascript">
+          <span class="project-index">04</span>
+          <div class="project-summary"><h3>Hacker Portfolio</h3><p>An interactive portfolio project built with HTML, CSS, and JavaScript.</p></div>
+          <div class="project-actions"><a href="https://ekanshps.github.io/Hacker-Portfolio/" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/Hacker-Portfolio" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="ui" data-search="xplosion esports">
+          <span class="project-index">05</span>
+          <div class="project-summary"><h3>Xplosion eSports</h3><p>A frontend website project for an esports team.</p></div>
+          <div class="project-actions"><a href="https://ekanshps.github.io/Xplosion-eSports/" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/Xplosion-eSports" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="ui" data-search="owl cafe">
+          <span class="project-index">06</span>
+          <div class="project-summary"><h3>Owl Cafe</h3><p>A responsive website project for a cafe.</p></div>
+          <div class="project-actions"><a href="https://ekanshps.github.io/Owl-Cafe/" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/Owl-Cafe" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="web" data-search="godlike esports website">
+          <span class="project-index">07</span>
+          <div class="project-summary"><h3>Godlike Esports</h3><p>A responsive website project for an esports organization.</p></div>
+          <div class="project-actions"><a href="https://godlikeesports.vercel.app" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/godlikeesports" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="tools" data-search="promptble prompts">
+          <span class="project-index">08</span>
+          <div class="project-summary"><h3>Promptble</h3><p>A project for browsing and sharing AI prompts.</p></div>
+          <div class="project-actions"><a href="https://ekanshps.github.io/Promptble/" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/Promptble" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+        <li class="project-row" data-category="ui" data-search="hospital landing page">
+          <span class="project-index">09</span>
+          <div class="project-summary"><h3>Hospital Landing Page</h3><p>A landing page project for a community health centre.</p></div>
+          <div class="project-actions"><a href="https://ekanshps.github.io/Hospital-landing-page/" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a><a href="https://github.com/Ekanshps/Hospital-landing-page" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a></div>
+        </li>
+      </ol>
+      <p class="project-empty" id="project-empty" hidden>No projects match this filter.</p>
+      <div class="project-pagination" id="project-pagination">
+        <button class="text-button" id="project-prev" type="button" aria-label="Previous projects">Previous</button>
+        <span id="project-page" aria-live="polite"></span>
+        <button class="text-button" id="project-next" type="button" aria-label="Next projects">Next</button>
       </div>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <p>© 2026 Ekansh Pratap Singh. Made with ❤️ in Lucknow</p>
-    <div class="footer-social-icons">
-      <a href="https://github.com/Ekanshps" target="_blank" rel="noopener" aria-label="GitHub">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/in/ekanshsinghyt/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/ekansh.pratap/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-      <a href="mailto:ekanshprataps@gmail.com" aria-label="Email">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-      </a>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<!-- Main script - deferred -->
-<script src="script.js" defer></script>
+    <section class="content-section page-width" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <h2 id="about-title">About</h2>
+        <p>Web development is my primary focus; AI with Python is my current training.</p>
+      </div>
+      <div class="about-layout">
+        <p class="about-copy">I’m Ekansh Pratap Singh, a web developer interested in building useful, straightforward digital experiences. I completed my MCA in May 2026 and am currently training in AI using Python at DUCAT, Greater Noida West.</p>
+        <dl class="fact-list">
+          <div><dt>Education</dt><dd>MCA, completed May 2026</dd></div>
+          <div><dt>Undergraduate</dt><dd>BCA, Dr. Ram Manohar Lohia Avadh University</dd></div>
+          <div><dt>Current learning</dt><dd>AI with Python, DUCAT</dd></div>
+          <div><dt>Training location</dt><dd>Greater Noida West</dd></div>
+        </dl>
+      </div>
+    </section>
 
-<!-- Botpress Chat Bubble - Load after page is interactive -->
-<script>
-// Lazy load chatbot after page loads
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    var s1 = document.createElement('script');
-    s1.src = 'https://cdn.botpress.cloud/webchat/v3.2/inject.js';
-    document.body.appendChild(s1);
-    
-    s1.onload = function() {
-      var s2 = document.createElement('script');
-      s2.src = 'https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js';
-      document.body.appendChild(s2);
-    };
-  }, 1500); // Load chatbot 1.5 seconds after page load
-});
-</script>
+    <section class="content-section page-width" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <h2 id="skills-title">Skills</h2>
+        <p>Experience is separated from what I’m learning now.</p>
+      </div>
+      <div class="skill-switch" role="group" aria-label="Skill group">
+        <button class="filter-button is-active" type="button" data-skill-view="used" aria-pressed="true">Used in projects</button>
+        <button class="filter-button" type="button" data-skill-view="learning" aria-pressed="false">Learning</button>
+      </div>
+      <div class="skills-layout" id="skills-used">
+        <div class="skill-group"><h3>Web development</h3><ul class="skill-list"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Responsive Web Design</li><li>TypeScript</li><li>REST APIs</li></ul></div>
+        <div class="skill-group"><h3>Tools &amp; practice</h3><ul class="skill-list"><li>Git &amp; GitHub</li><li>SEO</li><li>UI/UX Design</li><li>Problem-Solving</li><li>GSAP</li><li>Framer Motion</li></ul></div>
+      </div>
+      <div class="skills-layout" id="skills-learning" hidden>
+        <div class="skill-group"><h3>AI &amp; programming</h3><ul class="skill-list"><li>Python</li><li>Generative AI</li><li>LLMs</li><li>RAG</li><li>LangChain</li><li>Hugging Face</li><li>AI Automation</li><li>AI APIs</li><li>FAISS</li><li>C</li><li>C++</li></ul></div>
+        <div class="skill-group"><h3>Data &amp; databases</h3><ul class="skill-list"><li>NumPy</li><li>Pandas</li><li>Matplotlib</li><li>Seaborn</li><li>MySQL</li><li>MongoDB</li></ul></div>
+      </div>
+    </section>
+
+    <section class="content-section page-width" id="journey" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <h2 id="journey-title">Education &amp; learning</h2>
+        <p>A short timeline of confirmed education and current training.</p>
+      </div>
+      <ol class="journey-list">
+        <li><time>Completed</time><span>BCA, Dr. Ram Manohar Lohia Avadh University</span></li>
+        <li><time>May 2026</time><span>MCA completed</span></li>
+        <li><time>Currently</time><span>AI with Python training at DUCAT, Greater Noida West</span></li>
+      </ol>
+    </section>
+
+    <section class="content-section page-width" id="notes" aria-labelledby="notes-title">
+      <div class="section-heading">
+        <h2 id="notes-title">Notes</h2>
+        <p>Articles on frontend development, tools, and creator websites. <a href="/blog/">Browse all notes</a></p>
+      </div>
+      <div class="notes-layout">
+        <article class="note-row"><p class="eyebrow">Frontend</p><h3><a href="/blog/how-to-become-frontend-developer.html">A frontend development learning outline</a></h3><p>A practical overview of core browser technologies and project practice.</p></article>
+        <article class="note-row"><p class="eyebrow">Tools</p><h3><a href="/blog/best-web-development-tools.html">Web development tools</a></h3><p>Common tools for editing, testing, designing, and shipping websites.</p></article>
+        <article class="note-row"><p class="eyebrow">Creators</p><h3><a href="/blog/why-creators-need-website.html">Creator websites</a></h3><p>Considerations for a creator-owned site alongside social platforms.</p></article>
+        <article class="note-row"><p class="eyebrow">Performance</p><h3><a href="/blog/building-a-fast-static-portfolio.html">Building a fast static portfolio</a></h3><p>Progressive enhancement, usable forms, and practical performance checks.</p></article>
+        <article class="note-row"><p class="eyebrow">Learning</p><h3><a href="/blog/learning-ai-with-python.html">Learning AI with Python: a grounded starting point</a></h3><p>A beginner-friendly path that distinguishes current study from proven project experience.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section page-width" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="section-heading">
+        <h2 id="testimonials-title">Testimonials</h2>
+      </div>
+      <div class="testimonial" aria-live="off">
+        <img class="testimonial-avatar" id="testimonial-avatar" src="img/ghost.png" alt="Ajay Namata">
+        <blockquote id="testimonial-quote">“Working with Ekansh was a smooth experience from start to finish. He understood my requirements clearly and delivered a clean, responsive website ahead of schedule. I appreciated his attention to detail and willingness to make small refinements until it was perfect.”</blockquote>
+        <p class="testimonial-byline"><strong id="testimonial-name">Ajay Namata</strong><span id="testimonial-role">Startup Owner</span></p>
+        <div class="testimonial-controls">
+          <button class="icon-button" type="button" id="testimonial-prev" aria-label="Previous testimonial">←</button>
+          <span id="testimonial-position">1 / 4</span>
+          <button class="icon-button" type="button" id="testimonial-next" aria-label="Next testimonial">→</button>
+        </div>
+        <p class="visually-hidden" id="testimonial-announcement" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="content-section page-width contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <h2 id="contact-title">Start a conversation</h2>
+        <p>For hiring or a website project, send a note.</p>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-profile">
+          <p class="contact-name">Ekansh Pratap Singh</p>
+          <p>Web developer<br>MCA graduate, May 2026<br>Currently training in AI with Python at DUCAT, Greater Noida West</p>
+          <a class="contact-email" href="mailto:ekanshprataps@gmail.com">ekanshprataps@gmail.com <span aria-hidden="true">↗</span></a>
+          <a class="contact-resume" href="./resume.txt" download>Download résumé</a>
+        </div>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/movlrbrj" method="POST">
+          <input type="hidden" name="_next" value="https://epsingh.in/#contact">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" autocomplete="name" required>
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required>
+          <label for="contact-type">Enquiry type</label>
+          <select id="contact-type" name="enquiry_type" required>
+            <option value="" selected disabled>Select one</option>
+            <option value="hiring">Hiring</option>
+            <option value="project">Website project</option>
+          </select>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" required></textarea>
+          <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-width footer-inner">
+      <a class="wordmark" href="/">EPS<span>.</span></a>
+      <div class="footer-bio"><strong>Ekansh Pratap Singh</strong><p>Web developer. MCA graduate. Currently training in AI with Python.</p></div>
+      <nav class="footer-socials" aria-label="Social profiles">
+        <a href="https://github.com/Ekanshps" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2.1c-3.4.7-4.1-1.4-4.1-1.4-.5-1.3-1.3-1.6-1.3-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.3.8 1 .8 2.1v3.2c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg><span>GitHub</span></a>
+        <a href="https://www.linkedin.com/in/ekanshsinghyt/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.2 3.4a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3.5 9h3.4v11.5H3.5V9Zm5.5 0h3.2v1.6h.1a3.5 3.5 0 0 1 3.2-1.8c3.4 0 4 2.2 4 5v6.7h-3.4v-5.9c0-1.4 0-3.1-1.9-3.1s-2.1 1.5-2.1 3v6H9V9Z"/></svg><span>LinkedIn</span></a>
+        <a href="https://www.instagram.com/ekansh.pratap/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.2 2.5h9.6a4.7 4.7 0 0 1 4.7 4.7v9.6a4.7 4.7 0 0 1-4.7 4.7H7.2a4.7 4.7 0 0 1-4.7-4.7V7.2a4.7 4.7 0 0 1 4.7-4.7Zm0 2A2.7 2.7 0 0 0 4.5 7.2v9.6a2.7 2.7 0 0 0 2.7 2.7h9.6a2.7 2.7 0 0 0 2.7-2.7V7.2a2.7 2.7 0 0 0-2.7-2.7H7.2Zm4.8 2.7a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Zm5-3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg><span>Instagram</span></a>
+        <a href="https://youtube.com/@devareayt" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg><span>YouTube</span></a>
+        <a href="mailto:ekanshprataps@gmail.com" aria-label="Email"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2.5 5h19A2.5 2.5 0 0 1 24 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-19A2.5 2.5 0 0 1 0 16.5v-9A2.5 2.5 0 0 1 2.5 5Zm0 2a.5.5 0 0 0-.3.1L12 13.7l9.8-6.6a.5.5 0 0 0-.3-.1h-19Zm19 10a.5.5 0 0 0 .5-.5V9.5l-9.4 6.3a1 1 0 0 1-1.2 0L2 9.5v7a.5.5 0 0 0 .5.5h19Z"/></svg><span>Email</span></a>
+      </nav>
+      <small>© 2026 Ekansh Pratap Singh</small>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
 </body>
 </html>

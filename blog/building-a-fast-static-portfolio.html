@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building a Fast Static Portfolio Website</title>
+  <meta name="description" content="A practical guide to a fast static portfolio website: keep content in HTML, reduce unnecessary JavaScript, optimize assets, and test real user experience.">
+  <meta name="author" content="Ekansh Pratap Singh">
+  <link rel="canonical" href="https://epsingh.in/blog/building-a-fast-static-portfolio.html">
+  <link rel="icon" href="../img/logo1.png" type="image/png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building a Fast Static Portfolio Website">
+  <meta property="og:description" content="Practical performance and SEO decisions for static portfolio websites.">
+  <meta property="og:url" content="https://epsingh.in/blog/building-a-fast-static-portfolio.html">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Building a Fast Static Portfolio Website","description":"A practical guide to a fast static portfolio website: keep content in HTML, reduce unnecessary JavaScript, optimize assets, and test real user experience.","author":{"@type":"Person","name":"Ekansh Pratap Singh","url":"https://epsingh.in/"},"datePublished":"2026-10-01","dateModified":"2026-10-01","mainEntityOfPage":"https://epsingh.in/blog/building-a-fast-static-portfolio.html"}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="navbar" aria-label="Main navigation"><a href="/" class="logo">EPS<span>.</span></a><ul class="nav-links"><li><a href="/#work">Work</a></li><li><a href="/blog/">Notes</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+  <main class="blog-container" id="main">
+    <a href="/blog/" class="back-link">All notes</a>
+    <article>
+      <header class="blog-header"><p class="eyebrow">Web performance</p><h1>Building a fast static portfolio website</h1><div class="blog-meta"><span>By Ekansh Pratap Singh</span><time datetime="2026-10-01">1 October 2026</time></div></header>
+      <div class="blog-content">
+        <p>A static portfolio can serve pages without rendering every section in JavaScript. That makes the initial document easy for visitors, assistive technology, and search crawlers to read. Static delivery alone does not guarantee speed: fonts, images, third-party widgets, and large scripts still affect what a visitor experiences.</p>
+        <h2>Put important content in the HTML</h2>
+        <p>Write the page title, introduction, project summaries, and contact details directly into the document. Use JavaScript to improve interactions such as filtering projects, not to create the only copy of important content. This progressive-enhancement approach means the primary information remains available even when a script fails.</p>
+        <h2>Keep the first screen focused</h2>
+        <p>Lead with the person's name, role, a concise description, and the next useful actions. Avoid a tall decorative hero that pushes the work and contact information far below the fold. Make the heading scale predictably and check it at mobile widths.</p>
+        <h2>Use assets deliberately</h2>
+        <p>Choose an image format and dimensions that fit the display size. Include width and height attributes for images to reduce layout shifts. Do not lazy-load an image that is immediately visible; defer images further down the page. Prefer system or self-hosted fonts if remote font loading delays the first render, and use font-display settings that preserve readable fallback text.</p>
+        <h2>Load optional scripts only when useful</h2>
+        <p>Analytics, chat widgets, and other third-party code can add network requests and main-thread work. Delay nonessential scripts until after the page has loaded or until a visitor opens the feature. Keep the no-script page useful and ensure that the widget does not block reading or navigation.</p>
+        <h2>Measure, then improve</h2>
+        <p>Use Lighthouse during development to find opportunities, then review field data in Search Console and Chrome UX Report when available. Core Web Vitals include Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift. A lab score is a point-in-time test; it is not a promise about every device or network.</p>
+        <p>References: <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">Web Vitals</a>, <a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noopener noreferrer">Lighthouse</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img" target="_blank" rel="noopener noreferrer">MDN image element guidance</a>.</p>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">© 2026 Ekansh Pratap Singh · <a href="mailto:ekanshprataps@gmail.com">Contact</a></footer>
+</body>
+</html>

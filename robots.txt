@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Ekansh Pratap Singh Portfolio - Best Web Developer Lucknow, Gonda, Ayodhya, UP
+# Ekansh Pratap Singh portfolio
 Sitemap: https://epsingh.in/sitemap.xml

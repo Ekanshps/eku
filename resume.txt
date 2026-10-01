@@ -1,0 +1,48 @@
+EKANSH PRATAP SINGH
+Web Developer
+
+CONTACT
+Email: ekanshprataps@gmail.com
+Portfolio: https://epsingh.in/
+GitHub: https://github.com/Ekanshps
+LinkedIn: https://www.linkedin.com/in/ekanshsinghyt/
+
+PROFILE
+Web developer and MCA graduate. Currently training in AI with Python at DUCAT, Greater Noida West.
+
+EDUCATION
+Master of Computer Applications (MCA)
+Completed May 2026
+
+Bachelor of Computer Applications (BCA)
+Dr. Ram Manohar Lohia Avadh University
+
+CURRENT TRAINING
+AI with Python, DUCAT, Greater Noida West
+
+SELECTED PROJECTS
+Saurabh Studio
+Website project for a photography studio, built with Next.js.
+Live: https://ss-web-rosy.vercel.app/
+Source: https://github.com/Ekanshps/SS-Web
+
+DevForge
+Collection of developer tools.
+Live: https://devareayt.in
+Source: https://github.com/Ekanshps/DevForge
+
+WarpShare
+Browser project for direct device-to-device file sharing.
+Live: https://wrap-share-v1.vercel.app/
+Source: https://github.com/Ekanshps/WrapShare-v1
+
+Hacker Portfolio
+Interactive portfolio project built with HTML, CSS, and JavaScript.
+Live: https://ekanshps.github.io/Hacker-Portfolio/
+Source: https://github.com/Ekanshps/Hacker-Portfolio
+
+SKILLS USED IN PROJECTS
+HTML, CSS, JavaScript, React, responsive web design, TypeScript, REST APIs, Git, GitHub, SEO, UI/UX design, GSAP, Framer Motion
+
+CURRENTLY LEARNING
+Python, AI development, Generative AI, LLMs, RAG, LangChain, Hugging Face, AI APIs, FAISS, NumPy, Pandas, Matplotlib, Seaborn, MySQL, MongoDB, C, C++

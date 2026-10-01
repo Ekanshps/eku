@@ -1,347 +1,206 @@
-// (Admin panel removed in production cleanup)
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#primary-nav');
 
-/* Typing effect */
-const typedLines = JSON.parse(localStorage.getItem('eku_hero')) || ["MCA Student & eSports Athlete","Learning Full‑Stack Step by Step","Building Small Helpful Projects"];
-let tlIdx=0, ch=0, forward=true, typedEl=document.getElementById('typed');
-function typeLoop(){
-  const str=typedLines[tlIdx];
-  if(forward){
-    if(ch<str.length){ typedEl.textContent+=str[ch++]; setTimeout(typeLoop,50); }
-    else { forward=false; setTimeout(typeLoop,1300); }
-  } else {
-    if(ch>0){ typedEl.textContent=str.slice(0,--ch); setTimeout(typeLoop,26); }
-    else { forward=true; tlIdx=(tlIdx+1)%typedLines.length; setTimeout(typeLoop,300); }
-  }
-}
-typeLoop();
-
-/* Skills */
-/* Skills */
-
-const skillCategories = {
-  "AI & Generative AI": [
-    "Generative AI",
-    "LLMs",
-    "RAG",
-    "LangChain",
-    "Hugging Face",
-    "AI Automation",
-    "AI APIs",
-    "FAISS"
-  ],
-
-  "Programming": [
-    "Python",
-    "C",
-    "C++",
-    "JavaScript"
-  ],
-
-  "Web Development": [
-    "HTML5",
-    "CSS3",
-    "React",
-    "Responsive Web Design",
-    "Typescript",
-    "REST APIs",
-  ],
-
-  "Data & Databases": [
-    "NumPy",
-    "Pandas",
-    "Matplotlib",
-    "Seabor",
-    "MySQL",
-    "MongoDB"
-  ],
-
-  "Tools & Libraries": [
-    "Git & GitHub",
-    "GSAP",
-    "Framer Motion"
-  ],
-
-  "Other": [
-    "SEO",
-    "UI/UX Design",
-    "Problem-Solving"
-  ]
-};
-
-const skillsWrap = document.getElementById("skillsWrap");
-
-Object.entries(skillCategories).forEach(([category, skills]) => {
-
-  // Category container
-  const categoryDiv = document.createElement("div");
-  categoryDiv.className = "skill-category";
-
-  // Category heading
-  const categoryTitle = document.createElement("h3");
-  categoryTitle.className = "skill-category-title";
-  categoryTitle.textContent = category;
-
-  // Skills container
-  const tagsWrap = document.createElement("div");
-  tagsWrap.className = "skill-tags";
-
-  // Skill tags
-  skills.forEach(skill => {
-    const tag = document.createElement("span");
-    tag.className = "skill-tag";
-    tag.textContent = skill;
-
-    tagsWrap.appendChild(tag);
-  });
-
-  categoryDiv.appendChild(categoryTitle);
-  categoryDiv.appendChild(tagsWrap);
-
-  skillsWrap.appendChild(categoryDiv);
+menuButton?.addEventListener('click', () => {
+  const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!expanded));
+  menuButton.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
+  navigation?.classList.toggle('is-open', !expanded);
 });
 
-/* Timeline */
-const milestones = JSON.parse(localStorage.getItem('eku_journey')) || [
- {year:"2021",icon:"🎓",title:"BCA Started",desc:"Began Bachelor of Computer Applications at Dr. Ram Manohar Lohia Avadh University, Ayodhya."},
- {year:"2023",icon:"💼",title:"Hospital Internship",desc:"Interned at Appozon Technologies, worked on Hospital Management System project."},
- {year:"2023",icon:"🎮",title:"eSports Career",desc:"Joined Xplosion Esports as BGMI player & In-Game Leader (IGL) with strategic calls & team communication."},
- {year:"2024",icon:"✅",title:"BCA Completed",desc:"Graduated with BCA degree from Dr. Ram Manohar Lohia Avadh University, Ayodhya."},
- {year:"2024",icon:"🎓",title:"MCA Started",desc:"Enrolled in Master of Computer Applications at SRMCEM, Lucknow (Aug 2024)."},
- {year:"2024",icon:"🛠",title:"Early Projects",desc:"Built Hacker Portfolio, Usability Hub Clone, Task Buddy & UI experiments."},
- {year:"2024",icon:"🌐",title:"Web Essentials",desc:"Developed responsive websites for Owl Cafe, Hospital Landing Page & practice projects."},
- {year:"2025",icon:"⚡",title:"Full Stack Training",desc:"Completed Web Development Training (Full Stack – Python with Django) at SRMCEM Lucknow."},
- {year:"2026",icon:"🚀",title:"Professional Growth",desc:"Created Saurabh Studio with Next.js 14, animations & 3D effects for clients."},
- {year:"2026",icon:"🎯",title:"eSports Platforms",desc:"Built Xplosion eSports and Godlike Esports fullstack websites."},
- {year:"2026",icon:"💡",title:"Social & Dev Tools",desc:"Launched DevForge, Promptble, WarpShare, and started EduHive & Panchayat."},
- {year:"2026",icon:"🌟",title:"DevArea Brand",desc:"Created personal brand webapp offering web development, design & content services."}
-];
-const tl=document.getElementById('timelineGrid');
-const journeyPrev=document.getElementById('journeyPrev');
-const journeyNext=document.getElementById('journeyNext');
-const journeyPageInfo=document.getElementById('journeyPageInfo');
-let journeyPage=1;
-const journeyPerPage=4;
-
-function renderJourney(){
-  tl.innerHTML='';
-  const start=(journeyPage-1)*journeyPerPage;
-  const end=start+journeyPerPage;
-  milestones.slice(start,end).forEach(m=>{
-    const el=document.createElement('div');
-    el.className='milestone';
-    el.innerHTML=`<div class="year">${m.year}</div><div class="icon">${m.icon}</div><h3>${m.title}</h3><p>${m.desc}</p>`;
-    tl.appendChild(el);
-  });
-  const totalPages=Math.ceil(milestones.length/journeyPerPage);
-  journeyPageInfo.textContent=`Page ${journeyPage} of ${totalPages}`;
-  journeyPrev.disabled=journeyPage===1;
-  journeyNext.disabled=journeyPage>=totalPages;
-  revealTimeline();
-}
-function revealTimeline(){
-  document.querySelectorAll('.milestone').forEach(x=>{
-    if(x.getBoundingClientRect().top < innerHeight - 120) x.classList.add('visible');
-  });
-}
-journeyPrev?.addEventListener('click',()=>{
-  if(journeyPage>1){journeyPage--;renderJourney();}
-});
-journeyNext?.addEventListener('click',()=>{
-  if(journeyPage<Math.ceil(milestones.length/journeyPerPage)){journeyPage++;renderJourney();}
-});
-addEventListener('scroll',revealTimeline); addEventListener('load',renderJourney);
-
-/* Projects */
-const projectData = [
- {title:"Saurabh Studio, Ayodhya",cat:"web",desc:"Modern, high-performance photography studio website built with Next.js 14 with cinema-quality animations and 3D effects.",repo:"https://github.com/Ekanshps/SS-Web",live:"https://ss-web-rosy.vercel.app/"},
- {title:"DevForge",cat:"web",desc:"A collection of free, fast, and privacy-focused developer tools.",repo:"https://github.com/Ekanshps/DevForge",live:"https://devareayt.in"},
- {title:"Hacker Portfolio",cat:"ui",desc:"Portfolio project showcasing web development skills with interactive and visually appealing HTML, CSS, and JavaScript.",repo:"https://github.com/Ekanshps/Hacker-Portfolio",live:"https://ekanshps.github.io/Hacker-Portfolio/"},
- {title:"WarpShare",cat:"web",desc:"Modern web app for direct device-to-device file sharing without cloud services, external storage, or internet connectivity.",repo:"https://github.com/Ekanshps/WrapShare-v1",live:"https://wrap-share-v1.vercel.app"},
- {title:"Xplosion eSports",cat:"ui",desc:"Dynamic and engaging website dedicated to the world of eSports, built as a frontend landing page demo.",repo:"https://github.com/Ekanshps/Xplosion-eSports",live:"https://ekanshps.github.io/Xplosion-eSports/"},
- {title:"Godlike Esports",cat:"web",desc:"Modern, responsive fullstack website for Godlike Esports, one of India's premier esports organizations.",repo:"https://github.com/Ekanshps/godlikeesports",live:"https://godlikeesports.vercel.app"},
- {title:"Owl Cafe",cat:"ui",desc:"Modern, responsive website for Owl Cafe, Lucknow, focused on ambience-first branding and 24x7 cafe visibility.",repo:"https://github.com/Ekanshps/Owl-Cafe",live:"https://ekanshps.github.io/Owl-Cafe/"},
- {title:"Promptble",cat:"web",desc:"Hub for powerful AI prompts that spark creativity, boost productivity, and accelerate learning.",repo:"https://github.com/Ekanshps/Promptble",live:"https://ekanshps.github.io/Promptble/"},
- {title:"Hospital Landing Page",cat:"clone",desc:"CHC-PARASPUR landing page project for a nearby hospital, created as a frontend design build.",repo:"https://github.com/Ekanshps/Hospital-landing-page",live:"https://ekanshps.github.io/Hospital-landing-page/"},
- {title:"Panchayat",cat:"web",desc:"Social webapp for sharing updates in a society, village or town. Register complaints, read society rules, interact with problems and help each other.",repo:"#",live:"#"},
- {title:"EduHive",cat:"web",desc:"Social learning platform inspired by Instagram, turning doomscrolling into something positive. Built by students for students.",repo:"#",live:"#"},
- {title:"DevArea",cat:"web",desc:"Personal brand webapp serving as a digital partner, offering services like video editing, graphics designing, web development, and content writing.",repo:"#",live:"#"}
-];
-const projGrid=document.getElementById('projGrid');
-const projectPrev=document.getElementById('projectPrev');
-const projectNext=document.getElementById('projectNext');
-const projectPageInfo=document.getElementById('projectPageInfo');
-let projectPage=1;
-const projectsPerPage=6;
-let currentFilter="all";
-
-function renderProjects(filter=currentFilter){
-  currentFilter=filter;
-  const filtered=projectData.filter(p=>filter==="all"||p.cat===filter);
-  const start=(projectPage-1)*projectsPerPage;
-  const end=start+projectsPerPage;
-  projGrid.innerHTML=filtered
-    .slice(start,end)
-    .map(p=>`
-      <div class="project-card">
-        <span style="font-size:.55rem;letter-spacing:2px;color:#42e3ff;font-weight:600;">${p.cat.toUpperCase()}</span>
-        <h3>${p.title}</h3>
-        <p style="color:var(--text-dim);font-size:.85rem;line-height:1.45;margin:.1rem 0 .4rem;">${p.desc}</p>
-        <div class="project-links">
-          <a class="repo-btn" href="${p.repo}" target="_blank" rel="noopener" aria-label="${p.title} GitHub Repo">GIT REPO <span style='font-size:1.1em;'>&#8599;</span></a>
-          ${p.live ? `<a class="live-btn" href="${p.live}" target="_blank" rel="noopener" aria-label="${p.title} Live Website">LIVE SITE <span style='font-size:1.1em;'>&#8599;</span></a>` : ""}
-        </div>
-      </div>
-    `).join("");
-  const totalPages=Math.ceil(filtered.length/projectsPerPage);
-  projectPageInfo.textContent=`Page ${projectPage} of ${totalPages}`;
-  projectPrev.disabled=projectPage===1;
-  projectNext.disabled=projectPage>=totalPages;
-}
-renderProjects();
-projectPrev?.addEventListener('click',()=>{
-  if(projectPage>1){projectPage--;renderProjects();}
-});
-projectNext?.addEventListener('click',()=>{
-  const filtered=projectData.filter(p=>currentFilter==="all"||p.cat===currentFilter);
-  if(projectPage<Math.ceil(filtered.length/projectsPerPage)){projectPage++;renderProjects();}
-});
-document.querySelectorAll('.pf').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.pf').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    projectPage=1;
-    renderProjects(btn.dataset.filter);
+navigation?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    menuButton?.setAttribute('aria-expanded', 'false');
+    menuButton?.setAttribute('aria-label', 'Open menu');
+    navigation.classList.remove('is-open');
   });
 });
 
-/* Testimonials */
-const testimonials = JSON.parse(localStorage.getItem('eku_testimonials')) || [
-  {name:"Ajay Namata",role:"Startup Owner",text:"Working with Ekansh was a smooth experience from start to finish. He understood my requirements clearly and delivered a clean, responsive website ahead of schedule. I appreciated his attention to detail and willingness to make small refinements until it was perfect.",img:"img/ghost.png"},
-  {name:"Priti Singh",role:"Mentor",text:"Ekansh’s work on our project was not only technically sound but also well thought out from a user experience perspective. His ability to translate vague ideas into functional features really stood out.",img:"img/testi2.jpg"},
-  {name:"Akhilesh Maurya",role:"Saurabh Studio, Owner",text:"I approached Ekansh for a quick landing page and ended up with a full-fledged, beautifully designed site. The code was neat, easy to maintain, and performed flawlessly on all devices.",img:"img/akhi.png"},
-  {name:"XPxBAKIIop",role:"Teammate, XPLOSION eSPORTS",text:"Ekansh reads the game like a book. His planning and adaptability give the squad a clear edge in every match.",img:" img/XPxDEADigl.png"},
-];
-const aboutText = localStorage.getItem('eku_about') || document.querySelector('.lead')?.textContent || "I'm Ekansh a MCA student exploring full‑stack development while bringing strategic focus from my eSports experience. I like building small, useful projects that help me understand fundamentals deeper.";
-if(document.querySelector('.lead')) document.querySelector('.lead').textContent = aboutText;
-const tAvatar=document.getElementById('testiAvatar');
-const tText=document.getElementById('testiText');
-const tName=document.getElementById('testiName');
-const tRole=document.getElementById('testiRole');
-const tDock=document.getElementById('testiDock');
-const tBar=document.getElementById('testiBar');
-let tIdx=0, testiTimer=null, testiDuration=6000, paused=false;
-
-function loadTestimonial(i){
-  tIdx=i;
-  const d=testimonials[i];
-  tAvatar.src=d.img;
-  tAvatar.alt=d.name;
-  tText.textContent='“'+d.text+'”';
-  tName.textContent=d.name;
-  tRole.textContent=d.role;
-  document.querySelectorAll('.t-thumb').forEach((th,k)=>{
-    th.classList.toggle('active',k===i);
-  });
-  tBar.classList.remove('testi-bar'); void tBar.offsetWidth; tBar.classList.add('testi-bar');
-}
-testimonials.forEach((t,i)=>{
-  const im=document.createElement('img');
-  im.src=t.img;
-  im.alt=t.name;
-  im.className='t-thumb'+(i===0?' active':'');
-  im.addEventListener('click',()=>{ loadTestimonial(i); restartTestiCycle(); });
-  tDock.appendChild(im);
-});
-function nextTesti(){ loadTestimonial((tIdx+1)%testimonials.length); }
-function prevTesti(){ loadTestimonial((tIdx-1+testimonials.length)%testimonials.length); }
-function startTestiCycle(){
-  testiTimer=setInterval(()=>{ if(!paused) nextTesti(); },testiDuration);
-}
-function restartTestiCycle(){ clearInterval(testiTimer); startTestiCycle(); }
-document.getElementById('testiNext').onclick=()=>{ nextTesti(); restartTestiCycle(); };
-document.getElementById('testiPrev').onclick=()=>{ prevTesti(); restartTestiCycle(); };
-document.querySelector('.testi-card').addEventListener('mouseenter',()=>paused=true);
-document.querySelector('.testi-card').addEventListener('mouseleave',()=>paused=false);
-addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'){ nextTesti(); restartTestiCycle(); }
-  if(e.key==='ArrowLeft'){ prevTesti(); restartTestiCycle(); }
-});
-loadTestimonial(0);
-startTestiCycle();
-
-/* Impact counters */
-const nums=document.querySelectorAll('.impact-num');
-if(nums.length){
-  const obs=new IntersectionObserver(ents=>{
-    ents.forEach(en=>{
-      if(en.isIntersecting){
-        const el=en.target, target=+el.dataset.num;
-        let c=0, step=Math.max(1,Math.ceil(target/70));
-        (function inc(){
-          c+=step; if(c>target)c=target;
-          el.textContent=c;
-          if(c<target) requestAnimationFrame(inc);
-        })();
-        obs.unobserve(el);
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const entranceObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-entered');
+        observer.unobserve(entry.target);
       }
     });
-  },{threshold:.45});
-  nums.forEach(n=>obs.observe(n));
+  }, {threshold: 0.08});
+  document.querySelectorAll('.content-section').forEach((section) => entranceObserver.observe(section));
 }
 
-/* Theme toggle */
-const vibeBtn=document.getElementById('vibeBtn');
-const vibeText=document.getElementById('vibeText');
-let lightMode=false;
-function applyTheme(force){
-  if(force!==undefined) lightMode=force;
-  document.body.classList.toggle('light',lightMode);
-  vibeText.textContent=lightMode?'LIGHT':'DARK';
-  localStorage.setItem('pref-theme',lightMode?'light':'dark');
-}
-vibeBtn?.addEventListener('click',()=>{ lightMode=!lightMode; applyTheme(); });
-const stored=localStorage.getItem('pref-theme');
-if(stored) applyTheme(stored==='light');
-else if(window.matchMedia('(prefers-color-scheme: light)').matches) applyTheme(true);
-
-/* Contact form (mock) */
-// document.getElementById('contactForm').addEventListener('submit',e=>{
-//   e.preventDefault();
-//   const msg=document.getElementById('successMsg');
-//   msg.style.display='block';
-//   e.target.reset();
-//   setTimeout(()=>msg.style.display='none',3500);
-// });
-
-/* Back to top */
-const btt=document.getElementById('backToTop');
-addEventListener('scroll',()=>{ if(scrollY>420) btt.classList.add('show'); else btt.classList.remove('show'); });
-btt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-
-/* Cursor blob */
-const blob=document.getElementById('blob');
-let bx=innerWidth/2, by=innerHeight/2, tx=bx, ty=by;
-addEventListener('pointermove',e=>{ tx=e.clientX; ty=e.clientY; });
-function animateBlob(){ bx+=(tx-bx)*0.08; by+=(ty-by)*0.08; blob.style.transform=`translate(${bx-120}px,${by-120}px)`; requestAnimationFrame(animateBlob); }
-animateBlob();
-
-/* Reduce motion */
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){
-  document.querySelectorAll('.vibe-dot,.cursor-blob').forEach(el=>el.style.animation='none');
+const typedElement = document.querySelector('#typed');
+const typedPhrases = ['Thoughtful websites, built for people.', 'Interfaces with a clear purpose.', 'Web development backed by real projects.'];
+if (typedElement && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let phraseIndex = 0;
+  let characterIndex = typedPhrases[0].length;
+  let deleting = true;
+  const typeNext = () => {
+    if (document.hidden) {
+      setTimeout(typeNext, 500);
+      return;
+    }
+    const phrase = typedPhrases[phraseIndex];
+    characterIndex += deleting ? -1 : 1;
+    typedElement.textContent = phrase.slice(0, characterIndex);
+    let delay = deleting ? 28 : 48;
+    if (characterIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % typedPhrases.length;
+      delay = 220;
+    } else if (characterIndex === phrase.length) {
+      deleting = true;
+      delay = 1500;
+    }
+    setTimeout(typeNext, delay);
+  };
+  setTimeout(typeNext, 1700);
 }
 
-/* Hamburger nav */
-const navToggle=document.getElementById('navToggle');
-const navLinks=document.getElementById('primaryNav');
-navToggle.addEventListener('click',()=>{
-  const open=navLinks.classList.toggle('open');
-  navToggle.classList.toggle('active',open);
-  navToggle.setAttribute('aria-expanded',open);
+const projectRows = [...document.querySelectorAll('.project-row')];
+const projectFilters = [...document.querySelectorAll('[data-project-filter]')];
+const projectSearch = document.querySelector('#project-search');
+const projectPagination = document.querySelector('#project-pagination');
+const projectEmpty = document.querySelector('#project-empty');
+const projectPageLabel = document.querySelector('#project-page');
+const projectsPerPage = 6;
+let activeProjectFilter = 'all';
+let activeProjectPage = 0;
+
+function renderProjects() {
+  const searchTerm = projectSearch?.value.trim().toLowerCase() ?? '';
+  const matchingProjects = projectRows.filter((project) => {
+    const matchesFilter = activeProjectFilter === 'all' || project.dataset.category.split(' ').includes(activeProjectFilter);
+    const searchableText = `${project.dataset.search} ${project.textContent}`.toLowerCase();
+    return matchesFilter && searchableText.includes(searchTerm);
+  });
+  const pageCount = Math.max(1, Math.ceil(matchingProjects.length / projectsPerPage));
+  activeProjectPage = Math.min(activeProjectPage, pageCount - 1);
+  const visibleProjects = new Set(matchingProjects.slice(activeProjectPage * projectsPerPage, (activeProjectPage + 1) * projectsPerPage));
+
+  projectRows.forEach((project) => { project.hidden = !visibleProjects.has(project); });
+  if (projectEmpty) projectEmpty.hidden = matchingProjects.length !== 0;
+  if (projectPagination) projectPagination.hidden = matchingProjects.length <= projectsPerPage;
+  if (projectPageLabel) projectPageLabel.textContent = `${activeProjectPage + 1} / ${pageCount}`;
+  document.querySelector('#project-prev').disabled = activeProjectPage === 0;
+  document.querySelector('#project-next').disabled = activeProjectPage >= pageCount - 1;
+}
+
+projectFilters.forEach((button) => {
+  button.addEventListener('click', () => {
+    activeProjectFilter = button.dataset.projectFilter;
+    activeProjectPage = 0;
+    projectFilters.forEach((filter) => {
+      const selected = filter === button;
+      filter.classList.toggle('is-active', selected);
+      filter.setAttribute('aria-pressed', String(selected));
+    });
+    renderProjects();
+  });
 });
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  if(innerWidth<880){
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('active');
-    navToggle.setAttribute('aria-expanded','false');
+projectSearch?.addEventListener('input', () => { activeProjectPage = 0; renderProjects(); });
+document.querySelector('#project-prev')?.addEventListener('click', () => { activeProjectPage -= 1; renderProjects(); });
+document.querySelector('#project-next')?.addEventListener('click', () => { activeProjectPage += 1; renderProjects(); });
+renderProjects();
+
+document.querySelectorAll('[data-skill-view]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const showUsed = button.dataset.skillView === 'used';
+    document.querySelector('#skills-used').hidden = !showUsed;
+    document.querySelector('#skills-learning').hidden = showUsed;
+    document.querySelectorAll('[data-skill-view]').forEach((tab) => {
+      const selected = tab === button;
+      tab.classList.toggle('is-active', selected);
+      tab.setAttribute('aria-pressed', String(selected));
+    });
+  });
+});
+
+const testimonials = [
+  {name: 'Ajay Namata', role: 'Startup Owner', image: 'img/ghost.png', quote: 'Working with Ekansh was a smooth experience from start to finish. He understood my requirements clearly and delivered a clean, responsive website ahead of schedule. I appreciated his attention to detail and willingness to make small refinements until it was perfect.'},
+  {name: 'Priti Singh', role: 'Mentor', image: 'img/testi2.jpg', quote: 'Ekansh’s work on our project was not only technically sound but also well thought out from a user experience perspective. His ability to translate vague ideas into functional features really stood out.'},
+  {name: 'Akhilesh Maurya', role: 'Saurabh Studio, Owner', image: 'img/akhi.png', quote: 'I approached Ekansh for a quick landing page and ended up with a full-fledged, beautifully designed site. The code was neat, easy to maintain, and performed flawlessly on all devices.'},
+  {name: 'XPxBAKIIop', role: 'Teammate, XPLOSION eSPORTS', image: 'img/XPxDEADigl.png', quote: 'Ekansh reads the game like a book. His planning and adaptability give the squad a clear edge in every match.'}
+];
+let testimonialIndex = 0;
+function showTestimonial(index, announce = false) {
+  testimonialIndex = (index + testimonials.length) % testimonials.length;
+  const testimonial = testimonials[testimonialIndex];
+  const quote = document.querySelector('#testimonial-quote');
+  quote.classList.remove('is-changing');
+  void quote.offsetWidth;
+  quote.classList.add('is-changing');
+  document.querySelector('#testimonial-avatar').src = testimonial.image;
+  document.querySelector('#testimonial-avatar').alt = testimonial.name;
+  quote.textContent = `“${testimonial.quote}”`;
+  document.querySelector('#testimonial-name').textContent = testimonial.name;
+  document.querySelector('#testimonial-role').textContent = testimonial.role;
+  document.querySelector('#testimonial-position').textContent = `${testimonialIndex + 1} / ${testimonials.length}`;
+  if (announce) document.querySelector('#testimonial-announcement').textContent = `${testimonial.name}, ${testimonial.role}`;
+}
+document.querySelector('#testimonial-prev')?.addEventListener('click', () => showTestimonial(testimonialIndex - 1, true));
+document.querySelector('#testimonial-next')?.addEventListener('click', () => showTestimonial(testimonialIndex + 1, true));
+const testimonialSection = document.querySelector('#testimonials');
+let testimonialTimer;
+function startTestimonialTimer() {
+  clearInterval(testimonialTimer);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  testimonialTimer = setInterval(() => {
+    if (!document.hidden && !testimonialSection.matches(':hover') && !testimonialSection.contains(document.activeElement)) {
+      showTestimonial(testimonialIndex + 1);
+    }
+  }, 7000);
+}
+testimonialSection?.addEventListener('pointerenter', () => clearInterval(testimonialTimer));
+testimonialSection?.addEventListener('pointerleave', startTestimonialTimer);
+testimonialSection?.addEventListener('focusin', () => clearInterval(testimonialTimer));
+testimonialSection?.addEventListener('focusout', startTestimonialTimer);
+document.addEventListener('visibilitychange', startTestimonialTimer);
+startTestimonialTimer();
+
+const contactForm = document.querySelector('#contact-form');
+contactForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const status = document.querySelector('#form-status');
+  const submitButton = contactForm.querySelector('[type="submit"]');
+  status.textContent = 'Sending…';
+  status.className = 'form-status';
+  submitButton.disabled = true;
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: {Accept: 'application/json'}
+    });
+    if (!response.ok) throw new Error('Message could not be sent.');
+    status.textContent = 'Message sent. Thank you for reaching out.';
+    status.classList.add('is-success');
+    contactForm.reset();
+  } catch {
+    status.textContent = 'Message could not be sent. Please email ekanshprataps@gmail.com.';
+    status.classList.add('is-error');
+  } finally {
+    submitButton.disabled = false;
   }
-}));
+});
+
+function loadAskEku() {
+  if (document.querySelector('[data-askeku-script]')) return;
+  const loader = document.createElement('script');
+  loader.src = 'https://cdn.botpress.cloud/webchat/v3.2/inject.js';
+  loader.async = true;
+  loader.dataset.askekuScript = 'inject';
+  loader.onload = () => {
+    const config = document.createElement('script');
+    config.src = 'https://files.bpcontent.cloud/2025/09/15/17/20250915174331-WD0JXCRQ.js';
+    config.async = true;
+    config.dataset.askekuScript = 'config';
+    document.body.append(config);
+  };
+  loader.onerror = () => loader.remove();
+  document.body.append(loader);
+}
+
+addEventListener('load', () => {
+  if ('requestIdleCallback' in window) requestIdleCallback(loadAskEku, {timeout: 5000});
+  else setTimeout(loadAskEku, 2000);
+}, {once: true});
