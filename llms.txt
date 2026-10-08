@@ -1,0 +1,13 @@
+Ekansh Pratap Singh
+Web developer and MCA graduate building clear, useful websites with React, Next.js, local SEO, and AI-assisted workflows.
+
+Key pages:
+- Home: https://epsingh.in/ — Portfolio and contact details for frontend work and hiring opportunities.
+- Projects: https://epsingh.in/projects/ — Selected frontend and AI-focused project work with live demos and source links.
+- About: https://epsingh.in/about/ — Background, education, and current AI-with-Python training.
+- Resume: https://epsingh.in/resume/ — Downloadable resume for frontend roles and project work.
+- Services: https://epsingh.in/services/ — Website development, SEO/GEO/AEO, AI chatbots, and business growth support.
+- Web developer in Ayodhya: https://epsingh.in/web-developer-ayodhya — Local website and SEO service page for Ayodhya businesses.
+- Web developer in Lucknow: https://epsingh.in/web-developer-lucknow — Local website and SEO service page for Lucknow businesses.
+- Web developer in Gonda: https://epsingh.in/web-developer-gonda — Local website and SEO service page for Gonda businesses.
+- Blog: https://epsingh.in/blog/ — Notes on web development, AI with Python, local SEO, and web performance.

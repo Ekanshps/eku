@@ -6,7 +6,7 @@ live link: https://ss-web-woad.vercel.app
 Title: DevForge
 Desc: A collection of free, fast, and privacy-focused developer tools.
 github link: https://github.com/Ekanshps/DevForge
-live link: devareayt.in
+live link: 
 
 Title: Hacker Portfolio
 Desc: A portfolio project showcasing various web development skills. The project includes HTML, CSS, and JavaScript files to create an interactive and visually appealing portfolio.
