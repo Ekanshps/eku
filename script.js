@@ -1,6 +1,42 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#primary-nav');
 
+function initGsapEnhancements() {
+  if (!window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  const heroItems = document.querySelectorAll('.hero, .section-heading, .content-section, .faq-item');
+  if (heroItems.length) {
+    window.gsap.fromTo(heroItems, {
+      autoAlpha: 0,
+      y: 18
+    }, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.75,
+      ease: 'power2.out',
+      stagger: 0.08,
+      clearProps: 'transform,opacity'
+    });
+  }
+}
+
+function loadGsap() {
+  if (window.gsap || document.querySelector('[data-gsap-script]')) {
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js';
+  script.async = true;
+  script.dataset.gsapScript = 'true';
+  script.onload = () => {
+    initGsapEnhancements();
+  };
+  document.head.appendChild(script);
+}
+
 menuButton?.addEventListener('click', () => {
   const expanded = menuButton.getAttribute('aria-expanded') === 'true';
   menuButton.setAttribute('aria-expanded', String(!expanded));
@@ -26,6 +62,14 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
     });
   }, {threshold: 0.08});
   document.querySelectorAll('.content-section').forEach((section) => entranceObserver.observe(section));
+}
+
+if (document.querySelector('.hero, .faq-item, .content-section')) {
+  if (window.gsap) {
+    initGsapEnhancements();
+  } else {
+    window.addEventListener('load', loadGsap, {once: true});
+  }
 }
 
 const typedElement = document.querySelector('#typed');
@@ -181,6 +225,54 @@ contactForm?.addEventListener('submit', async (event) => {
   } finally {
     submitButton.disabled = false;
   }
+});
+
+function setFaqState(item, open) {
+  const answer = item.querySelector('.faq-answer');
+  const button = item.querySelector('.faq-question');
+  const icon = button?.querySelector('.faq-icon');
+  if (!answer || !button) return;
+
+  item.classList.toggle('is-open', open);
+  button.setAttribute('aria-expanded', String(open));
+
+  if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.gsap.to(answer, {
+      maxHeight: open ? `${answer.scrollHeight + 32}px` : '0px',
+      opacity: open ? 1 : 0,
+      duration: 0.28,
+      ease: 'power2.out',
+      onStart: () => {
+        answer.style.overflow = 'hidden';
+      }
+    });
+    window.gsap.to(icon, {
+      rotate: open ? 45 : 0,
+      duration: 0.2,
+      ease: 'power2.out'
+    });
+    return;
+  }
+
+  answer.style.maxHeight = open ? `${answer.scrollHeight + 32}px` : '0px';
+  if (icon) icon.style.transform = `rotate(${open ? 45 : 0}deg)`;
+}
+
+document.querySelectorAll('.faq-item').forEach((item) => {
+  const button = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+  if (!button || !answer) return;
+
+  setFaqState(item, item.classList.contains('is-open'));
+  button.addEventListener('click', () => {
+    const nextOpen = !item.classList.contains('is-open');
+    setFaqState(item, nextOpen);
+  });
+  window.addEventListener('resize', () => {
+    if (item.classList.contains('is-open')) {
+      answer.style.maxHeight = `${answer.scrollHeight + 32}px`;
+    }
+  });
 });
 
 function loadAskEku() {
